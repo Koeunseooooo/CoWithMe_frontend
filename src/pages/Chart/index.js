@@ -5,14 +5,27 @@ import ReactApexChart from "react-apexcharts";
 import ApexChart from 'apexcharts'
 
 
-// 차트 커스텀을 위한 옵션 설정은 디자인 나오면 업데이트
-const radardata = {
+const Chart = () => {
+  const [chartData, setChartData] = useState({});
+  useEffect(() => {
+    // axios.get(`/chart`)
+    //   .then(res => {})
+    setChartData({
+      myscore: [80, 50, 30, 40, 100, 20],
+      passer_score: [20, 30, 40, 80, 20, 80],
+      coding_status : "",
+      recommended_problems:["","","","",""]
+    })
+
+  }, []);
+
+  const chartformat = {
   series: [{
     name: '코테 합격자 평균 분포도',
-    data: [80, 50, 30, 40, 100, 20],
+    data: chartData.passer_score
   }, {
     name: '나의 분포도',
-    data: [20, 30, 40, 80, 20, 80],
+    data: chartData.myscore
   }, ],
   options: {
     chart: {
@@ -25,20 +38,6 @@ const radardata = {
         top: 1
       }
     },
-    // dataLabels: {
-    //   enabled: true
-    // },
-    // plotOptions: {
-    //   radar: {
-    //     size: 140,
-    //     polygons: {
-    //       strokeColors: '#e9e9e9',
-    //       fill: {
-    //         colors: ['#f8f8f8', '#fff']
-    //       }
-    //     }
-    //   }
-    // },
     title: {
       text: '코테 유형 분포도',
     },
@@ -46,8 +45,6 @@ const radardata = {
       width: 2
     },
     fill: {
-      // type: 'gradient',
-      // gradient: { gradientToColors: ['#0be881'], stops: [0, 100] },
       opacity: 0.5
     },
     colors: ['#7EA1C4','#FF4560',],
@@ -57,34 +54,18 @@ const radardata = {
       strokeColor: ['#7EA1C4','#FF4560',],
       strokeWidth: 2,
     },
-    // markers: {
-    //   size: 0
-    // },
     xaxis: {
       categories: ['그리디/탐색', 'DFS/BFS', 'DP', '문자열', '구현', '기타'],
     },
   },
-
-
 };
-
-const Chart = () => {
-  const [chartData, setChartData] = useState({});
-  useEffect(() => {
-    // axios.get(`/problem/${id}`)
-    //   .then(res => {})
-    setChartData({
-      myscore: [80, 50, 30, 40, 100, 20],
-      passer_score: [80, 50, 30, 40, 100, 20],
-    })
-  }, []);
   return (
     <>
-      <div>
+      <div classname="background">
           <div id="chart">
               <ReactApexChart 
-                  options={radardata.options}
-                  series={radardata.series}
+                  options={chartformat.options}
+                  series={chartformat.series}
                   type="radar" 
                   width="1000"
               />
