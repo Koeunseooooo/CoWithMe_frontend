@@ -5,12 +5,15 @@ import styled from "styled-components";
 import GuideSection from "../../components/Editor/GuideSection";
 import BreadCrumb from "../../components/BreadCrumb";
 import RunSection from "../../components/Editor/RunSection";
+import SubHeader from '../../components/SubHeader'
+
 import { theme, flexCenter } from '../../styles/theme';
 
 const Solve = () => {
 
   return (
     <>
+      <SubHeader headText={"코윗미 메인 홈"} />
       <BreadCrumb />
       <Wrapper>
         <div className="main-wrapper">
