@@ -1,23 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-import { theme, flexCenter } from '../../styles/theme';
-import { Link } from "react-router-dom";
+import { theme } from '../../styles/theme';
+import StyledLink from "./StyledLink";
 
 const BreadCrumb = () => {
 
     return (
         <BreadCrumbWrapper>
-            <div className="solve">맞춤 유형 문제</div>
             <ol className="breadcrumb">
-                <Link to='/'>
-                    코딩테스트 연습
-                </Link>
-                <Link to='/'>
-                    2021 KAKAO BLIND
-                </Link>
-                <Link to='/'>
-                    신규 아이디 추천
-                </Link>
+                <li>
+                    <StyledLink to='/' color="white">
+                        코딩테스트 연습
+                    </StyledLink>
+                </li>
+                <li>
+                    <StyledLink to='/' color="white">
+                        2021 KAKAO BLIND
+                    </StyledLink>
+                </li>
+                <li>
+                    <StyledLink to='/' color="green">
+                        신규 아이디 추천
+                    </StyledLink>
+                </li>
             </ol>
         </BreadCrumbWrapper>
     );
@@ -31,7 +36,7 @@ const BreadCrumbWrapper = styled.div`
   flex-direction: column;
   margin-top: 60px;
 
-  height: 70px;
+  height: 90px;
   width: 100%;
   color: white;
   background-color: black;
@@ -40,10 +45,24 @@ const BreadCrumbWrapper = styled.div`
     display: flex;
     flex-direction: row;
     font-weight: 400;
-    font-size: 12px;
+    text-decoration: none;
+    font-size: 24px;
     line-height: 34px;
     letter-spacing: 0.25px;
     background-color: black;
+    list-style: none;
+    
+    li + li::before {
+        color: ${theme.color.grey2};
+        content: "〉 ";
+        font-family: sans-serif;
+        font-weight: 400;
+        padding: 0px 4px;
+    }
+    li{
+        margin-left: 20px;
+    }
+    
   }
 
   .solve{
