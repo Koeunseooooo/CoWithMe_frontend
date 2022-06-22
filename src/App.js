@@ -8,7 +8,8 @@ import Router from "./router";
 const App = () => {
   const [cookies] = useCookies(["Authorization"]);
 
-  axios.defaults.baseURL = "http://localhost:5000";
+  axios.defaults.baseURL = "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com"
+  // axios.defaults.baseURL = "http://localhost:5000";
 
   axios.interceptors.request.use((config) => {
     // TODO : env 따른 분기
