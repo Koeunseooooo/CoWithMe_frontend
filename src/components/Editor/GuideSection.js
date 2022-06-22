@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom"
-import { useScroll } from "../../hooks/useScroll";
 import styled from "styled-components";
 import { theme } from "../../styles/theme";
 
@@ -10,13 +9,6 @@ const GuideSection = () => {
     const [problem, setProblem] = useState({});
     const [answer, setAnswer] = useState("");
     const [result, setResult] = useState("");
-    const { scrollY } = useScroll();
-
-    const [scrollLocation, setScrollLocation] = useState(0);
-    const scroll = (e) => {
-        setScrollLocation(e.target.scrollTop);
-    }
-
 
     useEffect(() => {
 
@@ -26,7 +18,7 @@ const GuideSection = () => {
         setProblem({
             title: 'A + B',
             category: 'DP',
-            problem: '카카오에 입사한 신입 개발자 네오는 "카카오계정개발팀"에 배치되어, 카카오 서비스에 가입하는 유저들의 아이디를 생성하는 업무를 담당하게 되었습니다. "네오"에게 주어진 첫 업무는 새로 가입하는 유저들이 카카오 아이디 규칙에 맞지 않는 아이디를 입력했을 때, 입력된 아이디와 유사하면서 규칙에 맞는 아이디를 추천해주는 프로그램을 개발하는 것입니다 다음은 카카오 아이디의 규칙입니다.'
+            problem: '카카오에 입사한 신입 개발자 네오는 "카카오계정개발팀"에 배치되어, 카카오 서비스에 가입하는 유저들의 아이디를 생성하는 업무를 담당하게 되었습니다. "네오"에게 주어진 첫 업무는 새로 가입하는 유저들이 카카오 아이디 규칙에 맞지 않는 아이디를 입력했을 때, 입력된 아이디와 유사하면서 규칙에 맞는 아이디를 추천해주는 프로그램을 개발하는 것입니다 다음은 카카오 아이디의 규칙입니다 카카오에 입사한 신입 개발자 네오는 "카카오계정개발팀"에 배치되어, 카카오 서비스에 가입하는 유저들의 아이디를 생성하는 업무를 담당하게 되었습니다. "네오"에게 주어진 첫 업무는 새로 가입하는 유저들이 카카오 아이디 규칙에 맞지 않는 아이디를 입력했을 때, 입력된 아이디와 유사하면서 규칙에 맞는 아이디를 추천해주는 프로그램을 개발하는 것입니다 다음은 카카오 아이디의 규칙입니다. 카카오에 입사한 신입 개발자 네오는 "카카오계정개발팀"에 배치되어, 카카오 서비스에 가입하는 유저들의 아이디를 생성하는 업무를 담당하게 되었습니다. "네오"에게 주어진 첫 업무는 새로 가입하는 유저들이 카카오 아이디 규칙에 맞지 않는 아이디를 입력했을 때, 입력된 아이디와 유사하면서 규칙에 맞는 아이디를 추천해주는 프로그램을 개발하는 것입니다 다음은 카카오 아이디의 규칙입니다. 카카오에 입사한 신입 개발자 네오는 "카카오계정개발팀"에 배치되어, 카카오 서비스에 가입하는 유저들의 아이디를 생성하는 업무를 담당하게 되었습니다. "네오"에게 주어진 첫 업무는 새로 가입하는 유저들이 카카오 아이디 규칙에 맞지 않는 아이디를 입력했을 때, 입력된 아이디와 유사하면서 규칙에 맞는 아이디를 추천해주는 프로그램을 개발하는 것입니다 다음은 카카오 아이디의 규칙입니다. 카카오에 입사한 신입 개발자 네오는 "카카오계정개발팀"에 배치되어, 카카오 서비스에 가입하는 유저들의 아이디를 생성하는 업무를 담당하게 되었습니다. "네오"에게 주어진 첫 업무는 새로 가입하는 유저들이 카카오 아이디 규칙에 맞지 않는 아이디를 입력했을 때, 입력된 아이디와 유사하면서 규칙에 맞는 아이디를 추천해주는 프로그램을 개발하는 것입니다 다음은 카카오 아이디의 규칙입니다.'
             , input: '첫째 줄에 A와 B가 주어진다. (0 < A, B < 10)',
             output: '첫째 줄에 A+B를 출력한다.',
             examples: [{
@@ -40,7 +32,7 @@ const GuideSection = () => {
     }, []);
 
     return (
-        <Wrapper animate={scrollY}>
+        <Wrapper>
             <div className="problem-name">
                 신규 아이디 추천
             </div>
@@ -78,7 +70,8 @@ export default GuideSection;
 
 const Wrapper = styled.div`
 width: 75.8rem;
-min-height: 100%;
+height: 100vh;
+overflow-y: auto;
 border-radius: 30px;
 padding: 20px;
 
