@@ -11,7 +11,7 @@ const HeaderBlock = styled.div`
   width: 143px;
   height: 1080px;
   background: #39E25E;
-  padding-top:250px;
+  padding-top:230px;
 
   .container{
     display:flex;
@@ -32,9 +32,10 @@ const HeaderBlock = styled.div`
     display:flex;
     flex-direction:column;
     align-items:center;
-    margin-bottom:30px;
+    margin-bottom:40px;
   }
-  .content{
+  
+  .content_negative{
     font-family: 'AppleSDGothicNeoM00';
     font-style: normal;
     font-weight: 400;
@@ -44,31 +45,60 @@ const HeaderBlock = styled.div`
     
     color: #000000;
   }
+
+  .content{
+    font-family: 'AppleSDGothicNeoB00';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.25px;
+    color: #FFFFFF;
+  }
   
   
   
 `
-function Header({ title, backFunc, params, noBackBtn }) {
+function Header({ isMainHome, isTest, isMyCoding }) {
 
   return (
     <HeaderBlock>
       <img className="logo" src={require('../../assets/Header/Logo/Cowithme.svg').default} alt=""/>  
       
+      
       <div className="container">
+        {isMainHome ? (
         <div className="block">
-          <img className="mainHome_negative"src={require('../../assets/Header/Icon/Main Home_Negative.svg').default} alt=""/>
+          <img className="mainHome"src={require('../../assets/Header/Icon/Main Home.svg').default} alt=""/>
           <div className="content">코딩 메인 홈</div>
         </div>
-
+        ):(
         <div className="block">
-          <img className="test_negative"src={require('../../assets/Header/Icon/Test__Negative.svg').default} alt=""/>
+          <img className="mainHome_negative"src={require('../../assets/Header/Icon/Main Home_Negative.svg').default} alt=""/>
+          <div className="content_negative">코딩 메인 홈</div>
+        </div>)}
+
+        {isTest ? (
+        <div className="block">
+          <img className="test"src={require('../../assets/Header/Icon/Test.svg').default} alt=""/>
           <div className="content">맞춤 유형 문제</div>
         </div>
+        ):(
+          <div className="block">
+          <img className="test_negative"src={require('../../assets/Header/Icon/Test__Negative.svg').default} alt=""/>
+          <div className="content_negative">맞춤 유형 문제</div>
+        </div>)}
 
+        {isMyCoding ? (
         <div className="block">
-          <img className="myCoding_negative"src={require('../../assets/Header/Icon/My Coding__Negative.svg').default} alt=""/>
+          <img className="myCoding"src={require('../../assets/Header/Icon/My Coding.svg').default} alt=""/>
           <div className="content">마이 코딩</div>
         </div>
+        ):(
+        <div className="block">
+        <img className="myCoding_negative"src={require('../../assets/Header/Icon/My Coding__Negative.svg').default} alt=""/>
+        <div className="content_negative">마이 코딩</div>
+        </div>)}
       </div>
 
 

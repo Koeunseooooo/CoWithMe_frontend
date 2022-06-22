@@ -12,7 +12,6 @@ const Router = () => {
   return (
     
     <Suspense>
-      <Header/>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/me" element={<MyPage />} />
