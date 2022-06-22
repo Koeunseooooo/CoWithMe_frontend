@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie"
 import ReactApexChart from "react-apexcharts"; 
 import ApexChart from 'apexcharts'
+import Header from '../../components/Header'
 
 
 const Chart = () => {
@@ -61,6 +62,7 @@ const Chart = () => {
 };
   return (
     <>
+    <Header isMyCoding/>
       <div classname="background">
           <div id="chart">
               <ReactApexChart 
