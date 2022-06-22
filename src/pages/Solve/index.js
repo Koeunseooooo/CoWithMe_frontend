@@ -6,13 +6,14 @@ import GuideSection from "../../components/Editor/GuideSection";
 import BreadCrumb from "../../components/BreadCrumb";
 import RunSection from "../../components/Editor/RunSection";
 import SubHeader from '../../components/SubHeader'
-
+import Header from '../../components/Header'
 import { theme, flexCenter } from '../../styles/theme';
 
 const Solve = () => {
 
   return (
     <>
+      <Header />
       <SubHeader headText={"맞춤 유형 문제"} />
       <BreadCrumb />
       <Wrapper>
@@ -35,6 +36,7 @@ export default Solve;
 const Wrapper = styled.div`
 margin-left: 143px;
 padding: 20px;
+
 
 `;
 const ContentWrapper = styled.div`
