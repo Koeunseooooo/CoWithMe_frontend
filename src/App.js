@@ -29,7 +29,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        {/* <Header /> */}
+        <Header />
         <Router />
       </BrowserRouter>
     </>
