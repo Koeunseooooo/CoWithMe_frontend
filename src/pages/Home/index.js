@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie"
 
 import ProblemCard from "../../components/ProblemCard";
+import Header from '../../components/Header'
 
 const Home = ({ history }) => {
   const [, setCookie, removeCookie] = useCookies(["Authorization"]);
@@ -76,7 +77,7 @@ const Home = ({ history }) => {
 
   return (
     <>
-
+      <Header isMainHome />
       <div>
         <h3>{email}</h3>
         <button onClick={join}>Join</button>
@@ -87,7 +88,6 @@ const Home = ({ history }) => {
       <div>
         {problems?.map(problem => <ProblemCard key={problem.id} problem={problem} />)}
       </div>
-
     </>
   )
 }
