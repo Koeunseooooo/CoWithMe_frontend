@@ -6,9 +6,13 @@ import MyPage from "../pages/MyPage";
 import Solve from "../pages/Solve";
 import Chart from "../pages/Chart";
 
+import Header from "../components/Header"
+
 const Router = () => {
   return (
+    
     <Suspense>
+      <Header/>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/me" element={<MyPage />} />
