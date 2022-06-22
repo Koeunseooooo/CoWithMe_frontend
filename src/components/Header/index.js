@@ -21,8 +21,9 @@ const HeaderBlock = styled.div`
   }
   
   .logo{
+    cursor:pointer;
     position: absolute;
-    left: 0.99%;
+    left: 0.79%;
     right: 93.59%;
     top: 5.27%;
     bottom: 93.26%;
