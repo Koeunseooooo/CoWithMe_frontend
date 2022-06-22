@@ -4,6 +4,7 @@ import { useCookies } from "react-cookie"
 import ReactApexChart from "react-apexcharts"; 
 import ApexChart from 'apexcharts'
 import Header from '../../components/Header'
+import SubHeader from '../../components/SubHeader'
 
 
 const Chart = () => {
@@ -62,6 +63,7 @@ const Chart = () => {
 };
   return (
     <>
+    <SubHeader headText={"마이 코딩"}/>
     <Header isMyCoding/>
       <div classname="background">
           <div id="chart">
