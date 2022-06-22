@@ -6,8 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 // from "../"
 
+
 const HeaderBlock = styled.div`
-  
+  position: fixed;
+  left: 0;
   width: 143px;
   height: 1080px;
   background: #39E25E;
@@ -63,42 +65,42 @@ function Header({ isMainHome, isTest, isMyCoding }) {
 
   return (
     <HeaderBlock>
-      <img className="logo" src={require('../../assets/Header/Logo/Cowithme.svg').default} alt=""/>  
-      
-      
+      <img className="logo" src={require('../../assets/Header/Logo/Cowithme.svg').default} alt="" />
+
+
       <div className="container">
         {isMainHome ? (
-        <div className="block">
-          <img className="mainHome"src={require('../../assets/Header/Icon/Main Home.svg').default} alt=""/>
-          <div className="content">코딩 메인 홈</div>
-        </div>
-        ):(
-        <div className="block">
-          <img className="mainHome_negative"src={require('../../assets/Header/Icon/Main Home_Negative.svg').default} alt=""/>
-          <div className="content_negative">코딩 메인 홈</div>
-        </div>)}
+          <div className="block">
+            <img className="mainHome" src={require('../../assets/Header/Icon/Main Home.svg').default} alt="" />
+            <div className="content">코딩 메인 홈</div>
+          </div>
+        ) : (
+          <div className="block">
+            <img className="mainHome_negative" src={require('../../assets/Header/Icon/Main Home_Negative.svg').default} alt="" />
+            <div className="content_negative">코딩 메인 홈</div>
+          </div>)}
 
         {isTest ? (
-        <div className="block">
-          <img className="test"src={require('../../assets/Header/Icon/Test.svg').default} alt=""/>
-          <div className="content">맞춤 유형 문제</div>
-        </div>
-        ):(
           <div className="block">
-          <img className="test_negative"src={require('../../assets/Header/Icon/Test__Negative.svg').default} alt=""/>
-          <div className="content_negative">맞춤 유형 문제</div>
-        </div>)}
+            <img className="test" src={require('../../assets/Header/Icon/Test.svg').default} alt="" />
+            <div className="content">맞춤 유형 문제</div>
+          </div>
+        ) : (
+          <div className="block">
+            <img className="test_negative" src={require('../../assets/Header/Icon/Test__Negative.svg').default} alt="" />
+            <div className="content_negative">맞춤 유형 문제</div>
+          </div>)}
 
         {isMyCoding ? (
-        <div className="block">
-          <img className="myCoding"src={require('../../assets/Header/Icon/My Coding.svg').default} alt=""/>
-          <div className="content">마이 코딩</div>
-        </div>
-        ):(
-        <div className="block">
-        <img className="myCoding_negative"src={require('../../assets/Header/Icon/My Coding__Negative.svg').default} alt=""/>
-        <div className="content_negative">마이 코딩</div>
-        </div>)}
+          <div className="block">
+            <img className="myCoding" src={require('../../assets/Header/Icon/My Coding.svg').default} alt="" />
+            <div className="content">마이 코딩</div>
+          </div>
+        ) : (
+          <div className="block">
+            <img className="myCoding_negative" src={require('../../assets/Header/Icon/My Coding__Negative.svg').default} alt="" />
+            <div className="content_negative">마이 코딩</div>
+          </div>)}
       </div>
 
 
