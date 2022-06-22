@@ -5,15 +5,16 @@ import styled from "styled-components";
 import GuideSection from "../../components/Editor/GuideSection";
 import BreadCrumb from "../../components/BreadCrumb";
 import RunSection from "../../components/Editor/RunSection";
-
+import { theme, flexCenter } from '../../styles/theme';
 
 const Solve = () => {
 
   return (
     <>
+      <BreadCrumb />
       <Wrapper>
         <div className="main-wrapper">
-          <BreadCrumb />
+
           <ContentWrapper>
             <GuideSection />
             <RunSection />
@@ -29,19 +30,22 @@ export default Solve;
 
 
 const Wrapper = styled.div`
+margin-left: 143px;
+padding: 20px;
 `;
 const ContentWrapper = styled.div`
   display: flex;
-
+  padding: 50px;
   width: 100%;
-  height: 80vh;
+  border-radius: 20px;
+  border: 1px solid white;
+  gap: 44px;
+  min-height: 80vh;
   box-sizing: border-box;
-  background-color: #f8f8f8;
+  background-color: yellow;
 
   .main-wrapper{
     display: flex;
     flex-direction : column;
-
-
   }
 `;

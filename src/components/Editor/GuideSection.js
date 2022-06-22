@@ -55,9 +55,9 @@ const GuideSection = () => {
 export default GuideSection;
 
 const Wrapper = styled.div`
-width: calc(50.7651% - 12px);
+width: 75.8rem;
 min-height: 100%;
+border-radius: 30px;
 
-margin-left: 143px;
 background-color: blue;
 `

@@ -21,8 +21,16 @@ const OutputSection = () => {
 
     return (
         <OutputWrapper>
-            <button onClick={submit}>제출하기</button>
-            {result !== "" && <>{result}</>}
+            <div className="output-title">
+                실행 결과
+            </div>
+            <div className="console">
+                {result !== "" && <>{result}</>}
+            </div>
+            <div className="button-wrapper">
+                <button onClick={submit}>제출하기</button>
+                <button>다음 문제 풀기</button>
+            </div>
         </OutputWrapper>
     );
 };
@@ -31,5 +39,15 @@ export default OutputSection;
 
 const OutputWrapper = styled.div`
 
+margin-top: 40px;
+display: flex;
+flex-direction: column;
+background-color: pink;
+.console{
+    padding: 30px;
+}
+.button-wraper{
+
+}
 
 `;
