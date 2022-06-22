@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie"
 import ProblemCard from "../../components/ProblemCard";
 import Header from '../../components/Header'
+import SubHeader from '../../components/SubHeader'
 
 const Home = ({ history }) => {
   const [, setCookie, removeCookie] = useCookies(["Authorization"]);
@@ -76,7 +77,9 @@ const Home = ({ history }) => {
 
   return (
     <>
+      <SubHeader headText={"코윗미 메인 홈"}/>
       <Header isMainHome/>
+      
       <div>
         <h3>{email}</h3>
         <button onClick={join}>Join</button>

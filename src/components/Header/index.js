@@ -7,17 +7,16 @@ import { useCookies } from 'react-cookie';
 // from "../"
 
 const HeaderBlock = styled.div`
-  
   width: 135px;
   height: 1080px;
   background: #39E25E;
   padding-top:230px;
+  margin:0px;
 
   .container{
     display:flex;
     flex-direction:column;
     align-items: center;
-    // height:360px;
   }
   
   .logo{
@@ -81,6 +80,7 @@ function Header({ isMainHome, isTest, isMyCoding }) {
  const navigate = useNavigate();
 
   return (
+    <>
     <HeaderBlock>
       <img className="logo" src={require('../../assets/Header/Logo/Cowithme.svg').default} alt=""/>  
       
@@ -140,6 +140,7 @@ function Header({ isMainHome, isTest, isMyCoding }) {
 
 
     </HeaderBlock>
+    </>
   );
 }
 
