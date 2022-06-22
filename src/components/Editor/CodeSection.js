@@ -10,6 +10,19 @@ const CodeSection = () => {
 
     const monaco = useMonaco();
 
+    const handleEditorDidMount = () => {
+        monaco?.editor.defineTheme('my-theme', {
+            base: 'vs-dark',
+            inherit: true,
+            rules: [],
+            colors: {
+                'editor.background': '#000000',
+
+            },
+        });
+    }
+
+    /*
     useEffect(() => {
         // TODO: 다크모드로 바꾸기
         monaco?.editor.defineTheme('my-theme', {
@@ -23,6 +36,7 @@ const CodeSection = () => {
         });
 
     }, []);
+    */
     const submit = () => {
         // axios.post(`/`);
         setResult("정답입니다!")
@@ -33,8 +47,9 @@ const CodeSection = () => {
             <Editor
                 className="editor"
                 height="320px"
-                theme="my-theme"
+                theme="vs-dark"
                 defaultLanguage="python"
+
                 defaultValue="def solution(lottos, win_nums):
                 answer = []
                 return answer;
@@ -55,7 +70,6 @@ const Wrapper = styled.div`
     .editor{
         margin-top: 34px;
         padding: 20px;
-        background-color: ${theme.color.black};
     }
 
 `;
