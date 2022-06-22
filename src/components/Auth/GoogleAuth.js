@@ -1,6 +1,7 @@
 import jwtDecode from 'jwt-decode';
 import styled from 'styled-components';
-import GoogleLogin from 'react-google-login';
+// import GoogleLogin from 'react-google-login';
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 
 import axios from 'axios';
 
@@ -45,11 +46,13 @@ const GoogleAuth = () => {
 
     return (
         <>
-            <GoogleLogin
-                clientId={process.env.REACT_APP_GOOGLE_API_KEY}
-                onSucess={onGoogleSignInSuccess}
-                onFailure={onGoogleSignInFailure}
-            />
+            <GoogleOAuthProvider clientId=''>
+                <GoogleLogin
+                    // clientId={process.env.REACT_APP_GOOGLE_API_KEY}
+                    onSuccess={onGoogleSignInSuccess}
+                    onError={onGoogleSignInFailure}
+                />
+            </GoogleOAuthProvider>
         </>
     )
 
