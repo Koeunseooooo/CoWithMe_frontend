@@ -30,12 +30,12 @@ const HeaderBlock = styled.div`
   }
 
   .block{
+    cursor:pointer;
     display:flex;
     flex-direction:column;
     align-items:center;
     margin-bottom:40px;
     position:relative;
-  }
 
   .card{
     margin-left:5px;
@@ -76,6 +76,8 @@ const HeaderBlock = styled.div`
   
 `
 function Header({ isMainHome, isTest, isMyCoding }) {
+  
+ const navigate = useNavigate();
 
   return (
     <HeaderBlock>
@@ -84,7 +86,7 @@ function Header({ isMainHome, isTest, isMyCoding }) {
       
       <div className="container">
         {isMainHome ? (
-        <div className="block">
+        <div className="block" onClick={() => navigate('/')}>
           <img className="card" src={require('../../assets/Header/Card/Select.svg').default} alt=""/>
           <div className="active">
           <img className="mainHome"src={require('../../assets/Header/Icon/Main Home.svg').default} alt=""/>
@@ -92,7 +94,7 @@ function Header({ isMainHome, isTest, isMyCoding }) {
           </div>
         </div>
         ):(
-        <div className="block">
+          <div className="block" onClick={() => navigate('/')}>
           
           <img className="mainHome_negative"src={require('../../assets/Header/Icon/Main Home_Negative.svg').default} alt=""/>
           <div className="content_negative">코딩 메인 홈</div>
@@ -101,7 +103,7 @@ function Header({ isMainHome, isTest, isMyCoding }) {
         </div>)}
 
         {isTest ? (
-        <div className="block">
+        <div className="block" onClick={() => navigate('')}> 
            <img className="card" src={require('../../assets/Header/Card/Select.svg').default} alt=""/>
            <div className="active">
           <img className="test"src={require('../../assets/Header/Icon/Test.svg').default} alt=""/>
@@ -110,7 +112,7 @@ function Header({ isMainHome, isTest, isMyCoding }) {
           
         </div>
         ):(
-          <div className="block">
+          <div className="block" onClick={() => navigate('')}>
            
           <img className="test_negative"src={require('../../assets/Header/Icon/Test__Negative.svg').default} alt=""/>
           <div className="content_negative">맞춤 유형 문제</div>
@@ -118,7 +120,7 @@ function Header({ isMainHome, isTest, isMyCoding }) {
         </div>)}
 
         {isMyCoding ? (
-        <div className="block">
+        <div className="block" onClick={() => navigate('/chart')}>
           <img className="card" src={require('../../assets/Header/Card/Select.svg').default} alt=""/>
           <div className="active">
           <img className="myCoding"src={require('../../assets/Header/Icon/My Coding.svg').default} alt=""/>
@@ -127,7 +129,7 @@ function Header({ isMainHome, isTest, isMyCoding }) {
          
         </div>
         ):(
-        <div className="block">
+        <div className="block" onClick={() => navigate('/chart')}>
         
         <img className="myCoding_negative"src={require('../../assets/Header/Icon/My Coding__Negative.svg').default} alt=""/>
         <div className="content_negative">마이 코딩</div>

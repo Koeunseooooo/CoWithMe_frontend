@@ -76,7 +76,7 @@ const Home = ({ history }) => {
 
   return (
     <>
-      <Header isMyCoding/>
+      <Header isMainHome/>
       <div>
         <h3>{email}</h3>
         <button onClick={join}>Join</button>
