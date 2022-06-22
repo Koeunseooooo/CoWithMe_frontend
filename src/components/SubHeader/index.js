@@ -16,6 +16,7 @@ const HeaderBlock = styled.div`
   display: flex;
   justify-content: space-between;
   align-items:center;
+  z-index: 50;
   
 
   .head_text{
@@ -78,30 +79,30 @@ const HeaderBlock = styled.div`
     margin-left:30px;
   }
 `
-const SubHeader = ({headText}) => {
-    return (
-      <HeaderBlock>
-        <div className="head_text">{headText}</div>
-        <div className="right_block">
-          <div className="sub_block">
-            <img  className="sub_icon" src={require('../../assets/Sub Icon/Notif.svg').default} alt=""/>
-            <div className="content">알림</div>
-          </div>
-          <div className="sub_block">
-            <img  className="sub_icon" src={require('../../assets/Sub Icon/Chat.svg').default} alt=""/>
-            <div className="content">채팅</div>
-          </div>
-          <div className="sub_block">
-          <img  className="sub_icon" src={require('../../assets/Sub Icon/My.svg').default} alt=""/>
-          <div className="content">MY</div>
-          </div>
-          <div className="search_bar">
-            <div className="search_content">통합 검색</div>
-            <img  className="sub_icon" src={require('../../assets/Sub Icon/Serch.svg').default} alt=""/>
-          </div>
+const SubHeader = ({ headText }) => {
+  return (
+    <HeaderBlock>
+      <div className="head_text">{headText}</div>
+      <div className="right_block">
+        <div className="sub_block">
+          <img className="sub_icon" src={require('../../assets/Sub Icon/Notif.svg').default} alt="" />
+          <div className="content">알림</div>
         </div>
-      </HeaderBlock>
-    );
-  };
-  
+        <div className="sub_block">
+          <img className="sub_icon" src={require('../../assets/Sub Icon/Chat.svg').default} alt="" />
+          <div className="content">채팅</div>
+        </div>
+        <div className="sub_block">
+          <img className="sub_icon" src={require('../../assets/Sub Icon/My.svg').default} alt="" />
+          <div className="content">MY</div>
+        </div>
+        <div className="search_bar">
+          <div className="search_content">통합 검색</div>
+          <img className="sub_icon" src={require('../../assets/Sub Icon/Serch.svg').default} alt="" />
+        </div>
+      </div>
+    </HeaderBlock>
+  );
+};
+
 export default SubHeader;
