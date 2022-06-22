@@ -62,7 +62,7 @@ const Chart = () => {
 };
   return (
     <>
-    <Header isMyCoding/>
+    <Header isMainHome/>
       <div classname="background">
           <div id="chart">
               <ReactApexChart 
