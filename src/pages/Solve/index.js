@@ -1,63 +1,44 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import CodeEditor from "../../components/Editor";
+import styled from "styled-components";
+import GuideSection from "../../components/Editor/GuideSection";
+import BreadCrumb from "../../components/BreadCrumb";
+import RunSection from "../../components/Editor/RunSection";
+
 
 const Solve = () => {
-  const { id } = useParams();
-  const [problem, setProblem] = useState({});
-  const [answer, setAnswer] = useState("");
-  const [result, setResult] = useState("");
-
-
-  useEffect(() => {
-    // axios.get(`/problem/${id}`)
-    //   .then(res => {})
-
-    setProblem({
-      title: 'A + B',
-      category: 'DP',
-      problem: '두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.',
-      input: '첫째 줄에 A와 B가 주어진다. (0 < A, B < 10)',
-      output: '첫째 줄에 A+B를 출력한다.',
-      examples: [{
-        input: '1 2',
-        output: '3'
-      }, {
-        input: '4 6',
-        output: '10'
-      }]
-    })
-  }, []);
-
-  const submit = () => {
-    // axios.post(`/`)
-
-    setResult("정답입니다!")
-  }
 
   return (
     <>
-      {problem &&
-        <>
-          <div>{`문제 #${id}(${problem.category})`}</div>
-          <div>{problem.title}</div>
-          <div>{problem.problem}</div>
-          <div>{problem.input}</div>
-          <div>{problem.output}</div>
+      <Wrapper>
+        <div className="main-wrapper">
+          <BreadCrumb />
+          <ContentWrapper>
+            <GuideSection />
+            <RunSection />
+          </ContentWrapper>
+        </div>
+      </Wrapper>
 
-          {problem.examples?.map(example => (
-            <>
-              <div>{example.input}</div>
-              <div>{example.output}</div>
-            </>
-          ))}
-
-          <CodeEditor />
-
-        </>}
     </>
   )
 }
 
-export default Solve
+export default Solve;
+
+
+const Wrapper = styled.div`
+`;
+const ContentWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+
+  .main-wrapper{
+
+
+  }
+`;
