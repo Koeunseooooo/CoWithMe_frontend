@@ -11,7 +11,7 @@ const HeaderBlock = styled.div`
   top: 0;
   background-color: #1E1E1E;
   height:100px;
-  width:90%;
+  width:85vw;
   float:right;
   display: flex;
   justify-content: space-between;
