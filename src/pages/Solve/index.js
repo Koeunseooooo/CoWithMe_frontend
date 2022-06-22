@@ -13,7 +13,7 @@ const Solve = () => {
 
   return (
     <>
-      <SubHeader headText={"코윗미 메인 홈"} />
+      <SubHeader headText={"맞춤 유형 문제"} />
       <BreadCrumb />
       <Wrapper>
         <div className="main-wrapper">
