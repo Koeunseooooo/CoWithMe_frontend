@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useCookies } from "react-cookie"
+import GoogleAuth from '../../components/Auth/GoogleAuth';
 
 const Home = () => {
   const [, setCookie, removeCookie] = useCookies(["Authorization"]);
@@ -44,6 +45,7 @@ const Home = () => {
     <>
       <h3>{email}</h3>
       <button onClick={join}>Join</button>
+      <GoogleAuth />
       <button onClick={login}>Login</button>
       <button onClick={logout}>LogOut</button>
       <button onClick={loadUser}>Load</button>

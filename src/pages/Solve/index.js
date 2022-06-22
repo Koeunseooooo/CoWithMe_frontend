@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
+import CodeEditor from "../../components/Editor";
 
 const Solve = () => {
   const { id } = useParams();
@@ -8,7 +9,6 @@ const Solve = () => {
   const [answer, setAnswer] = useState("");
   const [result, setResult] = useState("");
 
-  const handleAnswerChange = ({ target: { value } }) => setAnswer(value);
 
   useEffect(() => {
     // axios.get(`/problem/${id}`)
@@ -38,31 +38,24 @@ const Solve = () => {
 
   return (
     <>
-      {problem && 
-      <>
-        <div>{`문제 #${id}(${problem.category})`}</div>
-        <div>{problem.title}</div>
-        <div>{problem.problem}</div>
-        <div>{problem.input}</div>
-        <div>{problem.output}</div>
-        
-        {problem.examples?.map(example => (
-          <>
-            <div>{example.input}</div>
-            <div>{example.output}</div>
-          </>
-        ))}
+      {problem &&
+        <>
+          <div>{`문제 #${id}(${problem.category})`}</div>
+          <div>{problem.title}</div>
+          <div>{problem.problem}</div>
+          <div>{problem.input}</div>
+          <div>{problem.output}</div>
 
-        <input
-          name="answer"
-          value={answer}
-          onChange={handleAnswerChange}
-        />
+          {problem.examples?.map(example => (
+            <>
+              <div>{example.input}</div>
+              <div>{example.output}</div>
+            </>
+          ))}
 
-        <button onClick={submit}>제출하기</button>
+          <CodeEditor />
 
-        {result !== "" && <>{result}</>}
-      </>}
+        </>}
     </>
   )
 }
