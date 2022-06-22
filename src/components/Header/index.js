@@ -8,6 +8,9 @@ import { useCookies } from 'react-cookie';
 
 
 const HeaderBlock = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 135px;
   height: 1080px;
   background: #39E25E;
@@ -71,10 +74,6 @@ const HeaderBlock = styled.div`
   .nega{
     margin-bottom:40px;
   }
-
-  
-  
-  
 `
 function Header({ isMainHome, isTest, isMyCoding }) {
 
@@ -82,65 +81,65 @@ function Header({ isMainHome, isTest, isMyCoding }) {
 
   return (
     <>
-    <HeaderBlock>
-      <img className="logo" src={require('../../assets/Header/Logo/Cowithme.svg').default} alt="" />
+      <HeaderBlock>
+        <img className="logo" src={require('../../assets/Header/Logo/Cowithme.svg').default} alt="" />
 
 
-      <div className="container">
-        {isMainHome ? (
-          <div className="block" onClick={() => navigate('/')}>
-            <img className="card" src={require('../../assets/Header/Card/Select.svg').default} alt="" />
-            <div className="active">
-              <img className="mainHome" src={require('../../assets/Header/Icon/Main Home.svg').default} alt="" />
-              <div className="content">코딩 메인 홈</div>
+        <div className="container">
+          {isMainHome ? (
+            <div className="block" onClick={() => navigate('/')}>
+              <img className="card" src={require('../../assets/Header/Card/Select.svg').default} alt="" />
+              <div className="active">
+                <img className="mainHome" src={require('../../assets/Header/Icon/Main Home.svg').default} alt="" />
+                <div className="content">코딩 메인 홈</div>
+              </div>
             </div>
-          </div>
-        ) : (
-          <div className="block" onClick={() => navigate('/')}>
+          ) : (
+            <div className="block" onClick={() => navigate('/')}>
 
-            <img className="mainHome_negative" src={require('../../assets/Header/Icon/Main Home_Negative.svg').default} alt="" />
-            <div className="content_negative">코딩 메인 홈</div>
+              <img className="mainHome_negative" src={require('../../assets/Header/Icon/Main Home_Negative.svg').default} alt="" />
+              <div className="content_negative">코딩 메인 홈</div>
 
 
-          </div>)}
+            </div>)}
 
-        {isTest ? (
-          <div className="block" onClick={() => navigate('')}>
-            <img className="card" src={require('../../assets/Header/Card/Select.svg').default} alt="" />
-            <div className="active">
-              <img className="test" src={require('../../assets/Header/Icon/Test.svg').default} alt="" />
-              <div className="content">맞춤 유형 문제</div>
+          {isTest ? (
+            <div className="block" onClick={() => navigate('')}>
+              <img className="card" src={require('../../assets/Header/Card/Select.svg').default} alt="" />
+              <div className="active">
+                <img className="test" src={require('../../assets/Header/Icon/Test.svg').default} alt="" />
+                <div className="content">맞춤 유형 문제</div>
+              </div>
+
             </div>
+          ) : (
+            <div className="block" onClick={() => navigate('')}>
 
-          </div>
-        ) : (
-          <div className="block" onClick={() => navigate('')}>
+              <img className="test_negative" src={require('../../assets/Header/Icon/Test__Negative.svg').default} alt="" />
+              <div className="content_negative">맞춤 유형 문제</div>
 
-            <img className="test_negative" src={require('../../assets/Header/Icon/Test__Negative.svg').default} alt="" />
-            <div className="content_negative">맞춤 유형 문제</div>
+            </div>)}
 
-          </div>)}
+          {isMyCoding ? (
+            <div className="block" onClick={() => navigate('/chart')}>
+              <img className="card" src={require('../../assets/Header/Card/Select.svg').default} alt="" />
+              <div className="active">
+                <img className="myCoding" src={require('../../assets/Header/Icon/My Coding.svg').default} alt="" />
+                <div className="content">마이 코딩</div>
+              </div>
 
-        {isMyCoding ? (
-          <div className="block" onClick={() => navigate('/chart')}>
-            <img className="card" src={require('../../assets/Header/Card/Select.svg').default} alt="" />
-            <div className="active">
-              <img className="myCoding" src={require('../../assets/Header/Icon/My Coding.svg').default} alt="" />
-              <div className="content">마이 코딩</div>
             </div>
+          ) : (
+            <div className="block" onClick={() => navigate('/chart')}>
 
-          </div>
-        ) : (
-          <div className="block" onClick={() => navigate('/chart')}>
+              <img className="myCoding_negative" src={require('../../assets/Header/Icon/My Coding__Negative.svg').default} alt="" />
+              <div className="content_negative">마이 코딩</div>
 
-            <img className="myCoding_negative" src={require('../../assets/Header/Icon/My Coding__Negative.svg').default} alt="" />
-            <div className="content_negative">마이 코딩</div>
-
-          </div>)}
-      </div>
+            </div>)}
+        </div>
 
 
-    </HeaderBlock>
+      </HeaderBlock>
     </>
   );
 }
