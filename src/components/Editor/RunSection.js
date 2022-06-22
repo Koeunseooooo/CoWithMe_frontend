@@ -36,7 +36,7 @@ const RunSection = () => {
 export default RunSection;
 
 const Wrapper = styled.div`
- width: calc(60.2349% - 12px);
+ width: calc(50.2349% - 12px);
  display: flex;
  flex-direction: column;
 `

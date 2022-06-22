@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { theme, flexCenter } from '../../styles/theme';
+import { Link } from "react-router-dom";
 
 const BreadCrumb = () => {
 
@@ -8,15 +9,15 @@ const BreadCrumb = () => {
         <BreadCrumbWrapper>
             <div className="solve">맞춤 유형 문제</div>
             <ol className="breadcrumb">
-                <li>
+                <Link to='/'>
                     코딩테스트 연습
-                </li>
-                <li>
+                </Link>
+                <Link to='/'>
                     2021 KAKAO BLIND
-                </li>
-                <li>
+                </Link>
+                <Link to='/'>
                     신규 아이디 추천
-                </li>
+                </Link>
             </ol>
         </BreadCrumbWrapper>
     );
@@ -25,10 +26,16 @@ const BreadCrumb = () => {
 export default BreadCrumb;
 
 const BreadCrumbWrapper = styled.div`
-margin-left: 143px;
+  margin-left: 143px;
   display: flex;
   flex-direction: column;
   margin-top: 60px;
+
+  height: 70px;
+  width: 100%;
+  color: white;
+  background-color: black;
+
   .breadcrumb{
     display: flex;
     flex-direction: row;
@@ -42,11 +49,7 @@ margin-left: 143px;
   .solve{
     font-weight: 400;
     font-size: 20px;
-    line-height: 46px;
+    line-height: 25px;
     letter-spacing: 0.25px;
-}
-  height: 50px;
-  width: 100%;
-  color: white;
-  background-color: black;
+  }
 `;

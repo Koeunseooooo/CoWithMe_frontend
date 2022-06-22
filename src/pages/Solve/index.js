@@ -32,12 +32,15 @@ const Wrapper = styled.div`
 `;
 const ContentWrapper = styled.div`
   display: flex;
-  justify-content: center;
+
   width: 100%;
+  height: 80vh;
   box-sizing: border-box;
   background-color: #f8f8f8;
 
   .main-wrapper{
+    display: flex;
+    flex-direction : column;
 
 
   }
