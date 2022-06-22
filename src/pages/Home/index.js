@@ -1,11 +1,44 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie"
+import ProblemCard from "../../components/ProblemCard";
 
-const Home = () => {
+const Home = ({ history }) => {
   const [, setCookie, removeCookie] = useCookies(["Authorization"]);
 
   const [email, setEmail] = useState("");
+  const [problems, setProblems] = useState(null);
+
+  useEffect(() => {
+    // TODO: 연결
+    // axios.get('/recommends')
+    //   .then(res => {
+
+    //   })
+
+    setProblems([
+      {
+        id: 1,
+        title: 'A+B',
+        category: 'DP'
+      },
+      {
+        id: 2,
+        title: '피보나치 함수',
+        category: 'BFS'
+      },
+      {
+        id: 3,
+        title: '유기농 배추',
+        category: '문자열'
+      },
+      {
+        id: 4,
+        title: '체스판 다시 칠하기',
+        category: '구현'
+      }
+    ])
+  }, []);
 
   const join = async () => {
     // const resp = await axios.post('/auth/join', {})
@@ -42,11 +75,16 @@ const Home = () => {
 
   return (
     <>
-      <h3>{email}</h3>
-      <button onClick={join}>Join</button>
-      <button onClick={login}>Login</button>
-      <button onClick={logout}>LogOut</button>
-      <button onClick={loadUser}>Load</button>
+      <div>
+        <h3>{email}</h3>
+        <button onClick={join}>Join</button>
+        <button onClick={login}>Login</button>
+        <button onClick={logout}>LogOut</button>
+        <button onClick={loadUser}>Load</button>
+      </div>
+      <div>
+        {problems?.map(problem => <ProblemCard key={problem.id} problem={problem} />)}
+      </div>
     </>
   )
 }
