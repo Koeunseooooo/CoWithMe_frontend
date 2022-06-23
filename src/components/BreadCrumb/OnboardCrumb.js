@@ -22,7 +22,7 @@ const BreadCrumbWrapper = styled.div`
   flex-direction: column;
   margin-top: 100px;
 
-  height: 40px;
+  height: 60px;
   width: 100%;
   color: white;
   background-color: ${theme.color.black2};
@@ -35,7 +35,7 @@ const BreadCrumbWrapper = styled.div`
     text-decoration: none;
     font-family: 'AppleSDGothicNeoM00';
     font-size: 24px;
-    margin-top: 40px;
+    margin-top: 55px;
     line-height: 34px;
     letter-spacing: 0.25px;
     background-color: ${theme.color.black2};
