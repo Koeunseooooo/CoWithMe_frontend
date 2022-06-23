@@ -131,7 +131,7 @@ const Graph2Section = (props) => {
                     options={chartformat.options}
                     series={chartformat.series}
                     type="area" 
-                    height="250"
+                    height="200"
                 />
             </div>
             

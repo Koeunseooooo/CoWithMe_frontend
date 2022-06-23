@@ -125,8 +125,8 @@ export default Graph1Section;
 
 const Wrapper = styled.div`
     width: 50rem;
-    min-height: 100%;
-    margin-left:15px;
+    height: 100%;
+    // margin-left:15px;
     border-radius: 30px;
     padding: 30px;
     background: radial-gradient(50% 50% at 50% 50%, #241D45 1%, #131022 100%);

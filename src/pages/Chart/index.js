@@ -12,13 +12,14 @@ import BreadCrumb from "../../components/BreadCrumb";
 import RunSection from "../../components/Editor/RunSection";
 import Graph1Section from "../../components/Graph/Graph1Section";
 import Graph2Section from "../../components/Graph/Graph2Section";
-
-
+import Graph3Section from "../../components/Graph/Graph3Section";
 
 
 const Chart = () => {
   const [chart1Data, setChart1Data] = useState({});
   const [chart2Data, setChart2Data] = useState({});
+  const [chart3Data, setChart3Data] = useState({});
+
   useEffect(() => {
     // axios.get(`/chart`)
     //   .then(res => {})
@@ -33,9 +34,16 @@ const Chart = () => {
       dp_score: [20,20,30,40,50,60],
       dfs_score: [10, 30, 40, 80, 30, 20],
     })
+
+    setChart3Data({
+      dfs_bfs: 40,
+      dp: 70,
+      문자열: 50,
+    })
     
   }, []);
 
+  
   // console.log(chart1Data)
   //   console.log(1)
   return (
@@ -45,9 +53,11 @@ const Chart = () => {
       <Wrapper>
         <div className="main-wrapper">
           <ContentWrapper>
-            
               <Graph1Section chart1Data={chart1Data}/>
-              <Graph2Section chart2Data={chart2Data}/>
+              <RightWrapper>
+                <Graph2Section chart2Data={chart2Data}/>
+                <Graph3Section chart3Data={chart3Data}/>
+              </RightWrapper>
             
          
           </ContentWrapper>
@@ -61,6 +71,10 @@ const Chart = () => {
 
 export default Chart;
 
+const RightWrapper = styled.div`
+  display: flex;
+  flex-direction:column;
+`
 const Wrapper = styled.div`
 margin-left: 143px;
 padding: 20px;
@@ -68,9 +82,8 @@ padding: 20px;
 `;
 const ContentWrapper = styled.div`
   display: flex;
-  margin-top:135px;
-  padding: 30px;
-
+  margin-top:120px;
+  padding: 50px;
   width: 100%;
   
   gap: 44px;
@@ -85,10 +98,4 @@ const ContentWrapper = styled.div`
     margin-top:30px;
     flex-direction : column;
   }
-
-  .inner-wrapper{
-    flex-grow:1;
-  }
-
-
 `;
