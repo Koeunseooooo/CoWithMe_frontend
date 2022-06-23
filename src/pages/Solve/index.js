@@ -19,7 +19,6 @@ const Solve = () => {
       <Wrapper>
         <div className="main-wrapper">
           <ContentWrapper>
-
             <GuideSection />
             <RunSection />
           </ContentWrapper>
