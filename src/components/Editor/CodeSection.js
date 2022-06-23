@@ -3,12 +3,9 @@ import styled from "styled-components";
 import Editor, { useMonaco } from "@monaco-editor/react";
 import { theme } from "../../styles/theme";
 
-const CodeSection = ({ type }) => {
+const CodeSection = ({ setSource }) => {
     const handleEditorChange = (value) => setSource(value);
-    const [source, setSource] = useState();
     const [result, setResult] = useState("");
-    const [mode] = useState(type === 'onboard' ? '예제 소스' : 'Solution.py');
-
     const monaco = useMonaco();
 
     useEffect(() => {
@@ -21,7 +18,7 @@ const CodeSection = ({ type }) => {
     }
     return (
         <Wrapper>
-            <Solution>{mode}</Solution>
+            <Solution>Solution.py</Solution>
             <Editor
                 className="editor"
                 height="307px"

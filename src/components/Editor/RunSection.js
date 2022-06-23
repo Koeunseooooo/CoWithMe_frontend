@@ -3,15 +3,12 @@ import styled from "styled-components";
 import CodeEditor from "./CodeSection";
 import CodeSection from "./CodeSection";
 import OutputSection from "./OutputSection";
-import SelectSection from "./SelectSection";
 import axios from "axios";
 
 
-const RunSection = ({ type, dummy, setAnswer }) => {
-    console.log("run", type, dummy);
+const RunSection = ({ dummy }) => {
     const [result, setResult] = useState("");
     const [source, setSource] = useState();
-    // const monaco = useMonaco();
 
     const handleEditorChange = (value) => setSource(value);
 
@@ -26,9 +23,8 @@ const RunSection = ({ type, dummy, setAnswer }) => {
 
     return (
         <Wrapper>
-            <CodeSection type={type} />
-            {type === 'onboard' ? <SelectSection dummy={dummy} setAnswer={setAnswer} /> : <OutputSection />}
-
+            <CodeSection />
+            <OutputSection />
         </Wrapper>
     );
 }

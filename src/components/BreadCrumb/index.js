@@ -35,7 +35,7 @@ const BreadCrumbWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 60px;
-
+  font-family: 'AppleSDGothicNeoB00';
   height: 90px;
   width: 100%;
   color: white;
