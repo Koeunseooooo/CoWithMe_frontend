@@ -7,7 +7,8 @@ import Solve from "../pages/Solve";
 import Chart from "../pages/Chart";
 import Landing from "../pages/Landing";
 import Baekjoon from "../pages/Landing/Baekjoon";
-import LoginOrSignup from "../pages/Landing/LoginOrSignup";
+import Login from "../pages/Landing/Login";
+import Signup from "../pages/Landing/Signup";
 
 import Header from "../components/Header"
 import Onborad from "../pages/Onboard";
@@ -25,8 +26,8 @@ const Router = () => {
 
         <Route path="/landing" element={<Landing />} >
           <Route path="baekjoon" element={<Baekjoon />} />
-          <Route path="login" element={<LoginOrSignup />} />
-          <Route path="signup" element={<LoginOrSignup />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
         </Route>
         <Route path="*" element={<Navigate replace to="/" />} />
         <Route exact path="/onboard" element={<Onborad />} />

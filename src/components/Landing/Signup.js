@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Content = ({ keyword }) => {
-    const [text] = useState(keyword === 'login' ? '로그인' : '회원가입');
+const Signup = () => {
     return (
         <Wrapper>
             <div className="content">
-                <div className="login">{text}</div>
-                <div className="main-content">코윗미랑 함께라면 <br /> 코딩 메이트가 필요 없습니다!</div>
-                <div className="sub-content">사용하는 플랫폼의 계정으로 {text} 진행해주세요</div>
+                <div className="login">회원가입</div>
+                <div className="main-content">코윗미와 함께 코딩 테스트 <br /> 맞춤 솔루션을 경험해보세요!</div>
+                <div className="sub-content">사용하는 플랫폼의 계정으로 로그인을 진행해주세요</div>
             </div>
             <div className="image-group">
                 <img className="logo" src={require('../../assets/Landing/Banner_white_Symbol.svg').default} alt="" />
@@ -19,18 +18,18 @@ const Content = ({ keyword }) => {
     );
 };
 
-export default Content;
+export default Signup;
 
 const Wrapper = styled.div`
 display: flex;
 flex-direction: row;
 
 .content{
-    width: 50%;
+    width: 60%;
     color: black;
-    padding: 25px;
+    padding: 20px;
     .login{
-        font-family: 'neoB';;
+        font-family: 'AppleSDGothicNeoEB00';
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
@@ -63,7 +62,7 @@ flex-direction: row;
 
 
 .image-group{
-    width: 30%;
+    width: 45%;
     display: flex;
     flex-direction: column;
     height: 100%;

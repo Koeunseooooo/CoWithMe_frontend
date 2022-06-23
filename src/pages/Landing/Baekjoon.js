@@ -1,17 +1,24 @@
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
-import { useLocation } from 'react-router-dom';
 import styled from "styled-components";
-
+import { useNavigate } from 'react-router-dom';
 
 import { theme, flexCenter } from '../../styles/theme';
 
 const Baekjoon = () => {
 
     const [email, setEmail] = useState();
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setEmail(e.target.value);
+    }
+
+    const handleClick = (e) => {
+        //axios.post('/user/baekjoon', { email: email }).then((res) => {
+        //    console.log(res);
+        //})
+        navigate(`/onboard`); // 홈으로 이동
     }
 
     return (
@@ -25,8 +32,8 @@ const Baekjoon = () => {
             </div>
 
             <input placeholder="이메일을 입력해주세요!" name="email" onChange={handleChange} />
-            <Button>입력완료하기</Button>
-            <div className="pass">건너뛰기</div>
+            <Button onClick={handleClick}>입력완료하기</Button>
+            <div className="pass" onClick={() => navigate(`/`)}>건너뛰기</div>
 
         </LaunchContainer>
     )
@@ -40,6 +47,9 @@ ${flexCenter}
     gap: 20px;
     padding: 30px;
     width: 681px;
+    position: fixed;
+    top: 30%;
+    left: 35%;
     height: 384px;
     background-color: ${theme.color.green};
     margin: 0 auto;
@@ -49,7 +59,8 @@ ${flexCenter}
 
     .baekjoon-logo{
         position: absolute;
-        right: 0;
+        right: 40px;
+        top: 40px;
     }
 
     input{
@@ -59,6 +70,7 @@ ${flexCenter}
         border-bottom: 1px solid #000;
         padding: 10px 0px;
         font-weight: 400;
+        font-family: 'AppleSDGothicNeoEB00';
         font-size: 18px;
         line-height: 25px;
         letter-spacing: 0.5px;
@@ -115,6 +127,7 @@ border-radius: 10px;
 font-weight: 400;
 font-size: 16px;
 line-height: 23px;
+font-family: 'AppleSDGothicNeoEB00';
 letter-spacing: 0.5px;
 color: #000000;
 
