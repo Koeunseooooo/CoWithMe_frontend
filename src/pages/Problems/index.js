@@ -12,7 +12,7 @@ import Graph1Section from "../../components/Graph/Graph1Section";
 
 const Problems = ({ history }) => {
   const [, setCookie, removeCookie] = useCookies(["Authorization"]);
-
+  const [problems, setProblems] = useState(null);
   useEffect(() => {
     // TODO: 연결
     // axios.get('/recommends')
@@ -20,8 +20,45 @@ const Problems = ({ history }) => {
 
     //   })
 
-  
+    setProblems([
+      {
+        id: 1,
+        title: 'A+B',
+        category: 'DP'
+      },
+      {
+        id: 2,
+        title: '피보나치 함수',
+        category: 'BFS'
+      },
+      {
+        id: 3,
+        title: '유기농 배추',
+        category: '문자열'
+      },
+      {
+        id: 4,
+        title: '체스판 다시 칠하기',
+        category: '구현'
+      },
+      {
+        id: 5,
+        title: '유기농 배추',
+        category: '문자열'
+      },
+      {
+        id: 6,
+        title: '체스판 다시 칠하기',
+        category: '구현'
+      }
+    ])
   }, []);
+//   {problems?
+//     const problems1 = problems.slice(0,2)  
+//  const problems2 = problems.slice(3,5)  :""
+//   }
+ 
+
 
  
   return (
@@ -39,17 +76,29 @@ const Problems = ({ history }) => {
                 </div>
               </div>
               <div className="each-wrapper">
-                <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-              </div>
+              <div className="section">
+              {problems&&problems.slice(0,3).map((it) => (
+                  <ProblemBox 
+                    key={it.id}
+                    problem_title={it.title} 
+                    problem_source={it.category} 
+                    id={it.id}
+                    />
+                  ))}
+                 </div>
+                 </div>
               <div className="each-wrapper">
-                <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-              </div>
+              <div className="section">
+              {problems&&problems.slice(3,6).map((it) => (
+                  <ProblemBox 
+                    key={it.id}
+                    problem_title={it.title} 
+                    problem_source={it.category} 
+                    id={it.id}
+                    />
+                  ))}
+                 </div>
+             </div>
             </ContentWrapper>
           </div>
         </Wrapper>
