@@ -97,14 +97,14 @@ function Header({ isMainHome, isTest, isMyCoding }) {
             </div>)}
 
           {isTest ? (
-            <div className="block" onClick={() => navigate('')}>
+            <div className="block" onClick={() => navigate('/problems')}>
               {/* <img className="card" src={require('../../assets/Header/Card/Select.svg').default} alt="" /> */}
                 <img className="test" src={require('../../assets/Header/Icon/Test.svg').default} alt="" />
                 <div className="content">맞춤 유형 문제</div>
               </div>
 
           ) : (
-            <div className="block" onClick={() => navigate('')}>
+            <div className="block" onClick={() => navigate('/problems')}>
               <img className="test_negative" src={require('../../assets/Header/Icon/Test__Negative.svg').default} alt="" />
               <div className="content_negative">맞춤 유형 문제</div>
 
