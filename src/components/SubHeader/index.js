@@ -12,22 +12,21 @@ const HeaderBlock = styled.div`
   top: 0;
   background-color: ${theme.color.black2};
   height:100px;
-  width:85vw;
+  width:100vw;
   float:right;
   display: flex;
   justify-content: space-between;
   align-items:center;
-  z-index: 50;
+  z-index:3;
   
 
   .head_text{
-    // margin-left:20px;
+    margin-left:200px;
     font-family: 'neoB';
     font-style: normal;
     font-weight: 700;
     font-size: 23px;
     line-height: 46px;
-    /* identical to box height */
 
     letter-spacing: 0.25px;
 
@@ -37,13 +36,16 @@ const HeaderBlock = styled.div`
   .right_block{
     margin-right:50px;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+    justify-content: center;
   }
 
   .search_bar{
     display: flex;
     justify-content: space-between;
     align-items:center;
+    padding-right:20px;
+    padding-left:20px;
 
     width: 319px;
     height: 52px;
@@ -53,7 +55,9 @@ const HeaderBlock = styled.div`
   }
 
   .sub_icon{
-    margin-right:25px;
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom:5px;
   }
 
   .content{
@@ -68,6 +72,13 @@ const HeaderBlock = styled.div`
 
   }
 
+  .sub_block{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+    margin-right:25px;
+  }
   .search_content{
     font-family: 'AppleSDGothicNeoB00';
     font-style: normal;
@@ -77,7 +88,7 @@ const HeaderBlock = styled.div`
     /* identical to box height */
     letter-spacing: 0.25px;
     color: #FFFFFF;
-    margin-left:30px;
+    // margin-left:30px;
   }
 `
 const SubHeader = ({ headText }) => {

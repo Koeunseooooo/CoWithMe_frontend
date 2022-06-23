@@ -81,7 +81,7 @@ padding: 20px;
 const ContentWrapper = styled.div`
   display: flex;
   margin-top:120px;
-  padding: 50px;
+  padding: 30px;
   width: 100%;
   
   gap: 44px;

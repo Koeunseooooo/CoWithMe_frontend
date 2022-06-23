@@ -8,15 +8,15 @@ import ApexChart from 'apexcharts'
 
 
   
-const Graph1Section = (props) => {
+const Graph1Section = (datas) => {
 
     const chartformat = {
         series: [{
           name: '코테 합격자 평균 분포도',
-          data: props.chart1Data.myscore,
+          data: datas.chart1Data.myscore,
         }, {
           name: '나의 분포도',
-          data: props.chart1Data.passer_score,
+          data: datas.chart1Data.passer_score,
         }, ],
         dataLabels: {
             enabled: true
@@ -143,11 +143,11 @@ const Graph1Section = (props) => {
     // console.log(chartformat.series)
     return (
         <Wrapper >
+            
             <div className="title">
                 <div className="title-description">
                     코딩 테스트 차트
-                </div>
-                
+                </div> 
             <div id="chart">
                 <ReactApexChart 
                     options={chartformat.options}
