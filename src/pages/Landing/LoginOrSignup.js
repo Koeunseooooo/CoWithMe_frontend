@@ -11,7 +11,7 @@ const LoginOrSignup = () => {
 
     const location = useLocation();
     const LOGIN_OR_SIGNUP = location.pathname.split('/')[2];
-    console.log(location.pathname.split('/')[2]);
+    // console.log(location.pathname.split('/')[2]);
     return (
         <LaunchContainer>
             <div className="content-area-1">
@@ -30,7 +30,7 @@ const LoginOrSignup = () => {
 export default LoginOrSignup;
 
 const LaunchContainer = styled.div`
-width: 100%;
+    width: 100%;
     padding: 0 16px 80px;
     width: 681px;
     height: 799px;

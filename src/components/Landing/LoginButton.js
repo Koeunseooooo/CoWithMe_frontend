@@ -7,7 +7,6 @@ const LoginButton = () => {
     return (
         <Wrapper>
             <GoogleAuth />
-
         </Wrapper>
     );
 };

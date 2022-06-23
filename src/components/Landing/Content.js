@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Content = ({ keyword }) => {
-    console.log(keyword);
     const [text] = useState(keyword === 'login' ? '로그인' : '회원가입');
     return (
         <Wrapper>
@@ -31,7 +30,7 @@ flex-direction: row;
     color: black;
     padding: 25px;
     .login{
-        font-family: 'AppleSDGothicNeoB00';
+        font-family: 'neoB';;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;

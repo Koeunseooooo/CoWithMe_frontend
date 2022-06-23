@@ -1,6 +1,3 @@
-import axios from "axios";
-import { useEffect, useState, useRef } from "react";
-import { useParams } from "react-router-dom"
 import styled from "styled-components";
 
 import { theme, flexCenter } from '../../styles/theme';
@@ -12,15 +9,12 @@ const Landing = () => {
   return (
     <Wrapper>
       <img className="bg-image" src={require('../../assets/Landing/Background_Image.svg').default} alt="" />
-
       <header>
         <img className="logo" src={require('../../assets/Landing/white_Logo.svg').default} alt="" />
       </header>
       <section>
         <Outlet />
-
       </section>
-
     </Wrapper>
   )
 }
