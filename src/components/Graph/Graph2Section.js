@@ -18,6 +18,7 @@ const Graph2Section = (props) => {
         }, {
           name: 'DFS 영역',
           data: props.chart2Data.dfs_score,
+          
         }, ],
         options: {
             colors: ['#FF7A00','#39E25E',],
@@ -36,6 +37,9 @@ const Graph2Section = (props) => {
               type: 'area',
               zoom: {
                 enabled: false
+              },
+              toolbar: {
+                show: false
               }
             },
             dataLabels: {
@@ -144,7 +148,7 @@ export default Graph2Section;
 
 const Wrapper = styled.div`
     width: 50rem;
-    height: 40%;
+    height: 50%;
     border-radius: 30px;
     padding: 30px;
     padding-bottom:5px;

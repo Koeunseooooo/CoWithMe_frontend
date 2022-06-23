@@ -36,9 +36,11 @@ const Chart = () => {
     })
 
     setChart3Data({
-      dfs_bfs: 40,
-      dp: 70,
-      문자열: 50,
+      focus_rate:[40,70,50],
+      // 집중 3영역은 그냥 고정..?
+      // dfs_bfs: 40,
+      // dp: 70,
+      // 문자열: 50,
     })
     
   }, []);
@@ -58,13 +60,9 @@ const Chart = () => {
                 <Graph2Section chart2Data={chart2Data}/>
                 <Graph3Section chart3Data={chart3Data}/>
               </RightWrapper>
-            
-         
           </ContentWrapper>
         </div>
       </Wrapper>
-    
-      
     </>
   )
 }

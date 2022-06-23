@@ -31,6 +31,9 @@ const Graph1Section = (props) => {
               left: 1,
               top: 1
             },
+            toolbar: {
+                show: false
+              }
             
           },
           stroke: {
