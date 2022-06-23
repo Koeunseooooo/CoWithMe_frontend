@@ -144,6 +144,7 @@ const ChartFormat = (props) =>{
         options={chartformat.options}
         series={chartformat.series}
         type="radialBar" 
+        width="115"
         />
       )
 }
@@ -156,11 +157,11 @@ const Graph3SectionForHome = (props) => {
     // console.log(chartformat.series)
     return (
         <Wrapper3 >
-            <div className="title">
+            {/* <div className="title"> */}
                 <div className="description">
                 최근 집중하고 있는 3영역의 집중도를 점검합니다.
                 </div>
-            </div>
+            {/* </div> */}
             <div className="graphs">
                 <div id="chart" className="graph">
                     <ChartFormat value={data&&data[0]} type_name={"DFS/BFS"} gradient={['#3ABA58','#2458A6']}/>
@@ -207,10 +208,11 @@ const Wrapper3 = styled.div`
         font-family: 'neoM';
         font-style: normal;
         font-weight: 400;
-        font-size: 15px;
+        font-size: 13px;
         line-height: 32px;
         letter-spacing: 0.25px;
         color: #C5C5C5;
+        margin-bottom:20px;
     }
     .graphs{
         margin-top:10px;
