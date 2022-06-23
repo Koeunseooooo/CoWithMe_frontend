@@ -1,16 +1,40 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import Editor, { useMonaco } from "@monaco-editor/react";
+import { useMonaco } from "@monaco-editor/react";
 import { theme } from "../../styles/theme";
 
 const CodeSection = ({ setSource }) => {
     const handleEditorChange = (value) => setSource(value);
     const [result, setResult] = useState("");
+    const [value, setValue] = useState("def solution(lottos, win_nums): \nanswer =[]\nreturn answer; ")
     const monaco = useMonaco();
 
-    useEffect(() => {
 
-    }, []);
+
+    useEffect(() => {
+        monaco && monaco.editor.defineTheme('myTheme', {
+            base: 'vs-dark',
+            automaticLayout: true,
+            rules: [{ background: 'EDF9FA' }],
+            colors: {
+                'editor.foreground': '#FFFFFF',
+                'editor.background': '#0C0A18',
+                'editor.lineHighlightBackground': '#0000FF20',
+                'editorLineNumber.foreground': '#008800',
+                'editor.selectionBackground': '#88000030',
+            }
+        });
+        monaco && monaco.editor.setTheme('myTheme');
+
+        monaco && monaco.editor.create(document.getElementById('container'), {
+            value: value,
+            language: 'python',
+            fontFamily: 'Arial',
+            fontSize: 20,
+            minimap: { enabled: false },
+        });
+
+    }, [monaco]);
 
     const submit = () => {
         // axios.post(`/`);
@@ -19,36 +43,31 @@ const CodeSection = ({ setSource }) => {
     return (
         <Wrapper>
             <Solution>Solution.py</Solution>
-            <Editor
-                className="editor"
-                height="307px"
-                theme="vs-dark"
-                fontSize="30px"
-                defaultLanguage="python"
-
-                defaultValue="def solution(lottos, win_nums):
-                answer = []
-                return answer;
-        }"
-                onChange={handleEditorChange} />
+            <Editor>
+                <div id="container" className="container" />
+            </Editor>
         </Wrapper>
     )
-
 }
+
 
 export default CodeSection;
 
+
+const Editor = styled.div`
+    width: 600px;
+    height: 300px;
+    .container{
+        height: 100%;
+        width: 100%;
+    }
+`;
 
 const Wrapper = styled.div`
     border-radius: 30px;
     background-color: ${theme.color.black2};
     padding: 30px;
-    margin-top: 100px;
-    .editor{
-        margin-top: 34px;
-        padding: 20px;
-        width: 686px;
-    }
+    margin-top: 80px;
 
 `;
 const Solution = styled.div`

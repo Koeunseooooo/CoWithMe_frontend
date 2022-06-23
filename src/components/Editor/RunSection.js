@@ -23,7 +23,7 @@ const RunSection = ({ dummy }) => {
 
     return (
         <Wrapper>
-            <CodeSection />
+            {/*<CodeSection />*/}
             <OutputSection />
         </Wrapper>
     );
