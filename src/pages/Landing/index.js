@@ -1,10 +1,11 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom"
 import styled from "styled-components";
-import Content from "../../components/Landing/Content";
-import LoginButton from "../../components/Landing/LoginButton";
+
 import { theme, flexCenter } from '../../styles/theme';
+import { Outlet } from "react-router-dom";
+
 
 const Landing = () => {
 
@@ -16,14 +17,7 @@ const Landing = () => {
         <img className="logo" src={require('../../assets/Landing/white_Logo.svg').default} alt="" />
       </header>
       <section>
-        <div className="launch-container">
-          <div className="content-area-1">
-            <Content />
-          </div>
-          <div className="content-area-2">
-            <LoginButton />
-          </div>
-        </div>
+        <Outlet />
 
       </section>
 
@@ -83,9 +77,22 @@ section{
     }
 
     .content-area-2{
-      display: flex;
+      ${flexCenter}
+      margin-top: 20px;
       flex-direction: column;
       gap: 8px;
+      .other-method{
+        ${flexCenter}
+        margin-top: 20px;
+        font-family: 'AppleSDGothicNeoB00';
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 0.25px;
+
+        color: #000000;
+
+      }
     }
 }
 

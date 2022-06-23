@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Content = () => {
+const Content = ({ keyword }) => {
+    console.log(keyword);
+    const [text] = useState(keyword === 'login' ? '로그인' : '회원가입');
     return (
         <Wrapper>
             <div className="content">
-                <div className="login">로그인</div>
+                <div className="login">{text}</div>
                 <div className="main-content">코윗미랑 함께라면 <br /> 코딩 메이트가 필요 없습니다!</div>
-                <div className="sub-content">사용하는 플랫폼의 계정으로 로그인 진행해주세요</div>
+                <div className="sub-content">사용하는 플랫폼의 계정으로 {text} 진행해주세요</div>
             </div>
             <div className="image-group">
                 <img className="logo" src={require('../../assets/Landing/Banner_white_Symbol.svg').default} alt="" />
