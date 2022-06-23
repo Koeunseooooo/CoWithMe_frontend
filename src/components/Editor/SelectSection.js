@@ -10,10 +10,8 @@ const SelectSection = ({ dummy, setAnswer }) => {
 
     const handleEditorChange = (value) => setSource(value);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        console.log(name, value);
-        setAnswer(value);
+    const handleClick = (e) => {
+        console.log(e.target);
 
     }
 
@@ -34,66 +32,46 @@ const SelectSection = ({ dummy, setAnswer }) => {
             </div>
             <div className="button-wrapper">
 
-                <div className="radio-buttons">
-                    {dummy.choice1}
-                    <input
-                        id="windows"
-                        value="windows"
-                        name="platform"
-                        type="radio"
-                        onChange={handleChange}
-                    />
-                    {dummy.choice2}
-                    <input
-                        id="mac"
-                        value="mac"
-                        name="platform"
-                        type="radio"
-                        onChange={handleChange}
-                    />
-                    {dummy.choice3}
-                    <input
-                        id="linux"
-                        value="linux"
-                        name="platform"
-                        type="radio"
-                        onChange={handleChange}
-                    />
-                    {dummy.choice4}
-                    <input
-                        id="linux"
-                        value="linux"
-                        name="platform"
-                        type="radio"
-                        onChange={handleChange}
-                    />
-                </div>
+                <RadioButton onClick={handleClick}>{dummy.choice1}</RadioButton>
+                <RadioButton onClick={handleClick}>{dummy.choice2}</RadioButton>
+                <RadioButton onClick={handleClick}>{dummy.choice3}</RadioButton>
+                <RadioButton onClick={handleClick}>{dummy.choice4}</RadioButton>
             </div>
-            <Button color="green">다음 문제 풀기</Button>
+            <Button color="grey">다음 문제 풀기</Button>
         </OutputWrapper>
     );
 };
 
 export default SelectSection;
 
-const ChoiceButton = styled.div`
-
-`;
+const RadioButton = styled.div`
+width: 145px;
+height: 35px;
+border-radius: 100px;
+padding: 10px;
+${flexCenter}
+color: #2DDE54;
+border: 1px solid #2DDE54;
+background-color: black;
+font-weight: 400;
+font-size: 16px;
+font-family: 'AppleSDGothicNeoB00';
+line-height: 22px;
+&:hover{
+    background-color: #2DDE54;
+    color: black;
+}
+`
 
 const OutputWrapper = styled.div`
 padding: 30px;
-margin-top: 40px;
 display: flex;
+gap: 36px;
 flex-direction: column;
 background-color: ${theme.color.black4};
-.console{
-    padding: 30px;
-    margin-top: 36px;
-    height: 68px;
-    font-size: 18px;
-    
-}
+
 .button-wrapper{
+    flex-direction: row;
     ${flexCenter}
     gap: 40px;
 
@@ -114,6 +92,7 @@ const Button = styled.button`
 width: 165px;
 height: 48px;
 border-radius: 100px;
+align-self: center;
 color: ${(props) => props.color === 'grey' ? theme.color.white : theme.color.black};
 background-color: ${(props) => props.color === 'grey' ? theme.color.grey : theme.color.green};
 font-family: 'AppleSDGothicNeoB00';

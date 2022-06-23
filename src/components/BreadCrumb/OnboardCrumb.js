@@ -6,10 +6,11 @@ const BreadCrumb = ({ problemNumber }) => {
 
     return (
         <BreadCrumbWrapper>
-            <ol className="breadcrumb">
-                {`${problemNumber}/5`}
+            <span className="breadcrumb">
+                <span className="total-problem">5개 중 {">"} </span>
+                <span className="cur-problem">&nbsp;{`${problemNumber}개 문제`}</span>
 
-            </ol>
+            </span>
         </BreadCrumbWrapper>
     );
 };
@@ -17,44 +18,31 @@ const BreadCrumb = ({ problemNumber }) => {
 export default BreadCrumb;
 
 const BreadCrumbWrapper = styled.div`
-  margin-left: 143px;
   display: flex;
   flex-direction: column;
-  margin-top: 60px;
+  margin-top: 50px;
 
-  height: 90px;
+  height: 40px;
   width: 100%;
   color: white;
-  background-color: black;
+  background-color: ${theme.color.black};
 
   .breadcrumb{
+    margin-left: 109px;
     display: flex;
     flex-direction: row;
     font-weight: 400;
     text-decoration: none;
+    font-family: 'AppleSDGothicNeoM00';
     font-size: 24px;
+    margin-top: 20px;
     line-height: 34px;
     letter-spacing: 0.25px;
     background-color: black;
     list-style: none;
-    
-    li + li::before {
-        color: ${theme.color.grey2};
-        content: "〉 ";
-        font-family: sans-serif;
-        font-weight: 400;
-        padding: 0px 4px;
-    }
-    li{
-        margin-left: 20px;
-    }
-    
-  }
 
-  .solve{
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 25px;
-    letter-spacing: 0.25px;
-  }
+    .cur-problem{
+        color: ${theme.color.green};
+    }
+    
 `;

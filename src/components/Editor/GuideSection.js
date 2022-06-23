@@ -47,29 +47,7 @@ const GuideSection = ({ type, dummy }) => {
                 </div>
                 {problem &&
                     <Content>
-                        <p>{dummy.problem}</p>
-
-                        {/* 예시가 있는 경우 */}
-                        {dummy.examples &&
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>순위</th>
-                                        <th>당첨 내용</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {dummy.examples?.map(example => (
-                                        <tr key={example.id}>
-                                            <td>2</td>
-                                            <td>4개 번호가 일치</td>
-                                        </tr>
-
-                                    ))}
-                                </tbody>
-
-                            </table>
-                        }
+                        {dummy.problem}
                     </Content>}
             </div>
         </Wrapper>
@@ -79,18 +57,22 @@ export default GuideSection;
 
 const Wrapper = styled.div`
 width: 75.8rem;
-height: 100vh;
+height: 50vh;
 overflow-y: auto;
 border-radius: 30px;
+font-family: 'neoB';
 padding: 20px;
 
 background-color: ${theme.color.black2};
 .problem{
     padding: 30px;
+    line-height: 28px;
 }
 .problem-name{
+    font-family: 'AppleSDGothicNeoM00';
     font-weight: 400;
     font-size: 32px;
+    margin-left: 20px;
     line-height: 46px;
     letter-spacing: 0.25px;
     margin-bottom: 36px;
@@ -100,13 +82,16 @@ background-color: ${theme.color.black2};
     color: ${theme.color.green};
     font-weight: 400;
     font-size: 24px;
+    font-family: 'AppleSDGothicNeoM00';
     line-height: 33px;
     letter-spacing: 0.25px;
 }
 `
 
 const Content = styled.div`
+margin-top: 20px;
 font-family: 'AppleSDGothicNeoM00';
+padding: 10px;
 font-style: normal;
 font-weight: 400;
 font-size: 18px;

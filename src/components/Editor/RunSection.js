@@ -26,7 +26,7 @@ const RunSection = ({ type, dummy, setAnswer }) => {
 
     return (
         <Wrapper>
-            <CodeSection />
+            <CodeSection type={type} />
             {type === 'onboard' ? <SelectSection dummy={dummy} setAnswer={setAnswer} /> : <OutputSection />}
 
         </Wrapper>

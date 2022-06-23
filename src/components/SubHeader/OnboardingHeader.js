@@ -12,7 +12,7 @@ const HeaderBlock = styled.div`
   top: 0;
   background-color: ${theme.color.black2};
   height:100px;
-  width:85vw;
+  width:100%;
   float:right;
   display: flex;
   justify-content: space-between;
@@ -20,26 +20,23 @@ const HeaderBlock = styled.div`
   z-index: 50;
   
   .head_text{
-    // margin-left:20px;
+    margin-left: 109px;
     font-family: 'neoB';
     font-style: normal;
     font-weight: 700;
-    font-size: 23px;
+    font-size: 32px;
     line-height: 46px;
-    /* identical to box height */
-
     letter-spacing: 0.25px;
-
     color: #FFFFFF;
   }
 
 `
 const OnboardingHeader = ({ headText }) => {
-    return (
-        <HeaderBlock>
-            <div className="head_text">{headText}</div>
-        </HeaderBlock>
-    );
+  return (
+    <HeaderBlock>
+      <div className="head_text">{headText}</div>
+    </HeaderBlock>
+  );
 };
 
 export default OnboardingHeader;
