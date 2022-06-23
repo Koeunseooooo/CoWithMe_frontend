@@ -3,8 +3,7 @@ import styled from "styled-components";
 import Modal from './Modal';
 
 const ModalContainer = ({ keyword }) => {
-    // console.log('modal', keyword);
-    const [modalOpen, setModalOpen] = useState(false); // 초기 상태
+    const [modalOpen, setModalOpen] = useState(false);
     const [text] = useState(keyword === 'login' ? '회원가입하기' : '이미 계정이 있으신가요?');
 
     const modalClose = () => {

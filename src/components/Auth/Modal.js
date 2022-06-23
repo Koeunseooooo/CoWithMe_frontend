@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
 import { theme, flexCenter } from "../../styles/theme";
-
+import { useNavigate } from 'react-router-dom';
 const Modal = ({ modalClose }) => {
+    const navigate = useNavigate();
     return (
         <ModalContainer>
             <div className="modal">
@@ -12,7 +13,7 @@ const Modal = ({ modalClose }) => {
                 <div className="main-desc">회원가입</div>
                 <div className="sub-desc">안녕하세요 코윗미입니다!</div>
                 <div className="sub-desc">다른 방식으로 로그인하거나 새롭게 가입해주세요!</div>
-                <StyledButton color="green">새로운 계정 만들기</StyledButton>
+                <StyledButton color="green" onClick={() => navigate(`/landing/signup`)}>새로운 계정 만들기</StyledButton>
                 <StyledButton color="white" onClick={modalClose}>다른 방식으로 로그인</StyledButton>
             </div>
         </ModalContainer>
@@ -32,13 +33,13 @@ border: ${(props) => props.color === 'white' ? '2px solid #F4F4F4' : 'none'};
 border-radius: 10px;
 `
 const ModalContainer = styled.div`
-width: 100%;
-height: 100vh;
-background-color: rgba(0,0,0,0.4);
-z-index: 10;
-position: fixed;
-top: 0;
-left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
 
 .modal{
     width: 519px;
@@ -47,8 +48,9 @@ left: 0;
     position: absolute;
     background: ${theme.color.black3};
     border-radius: 15px;
-    left: 30%;
-    top:50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     z-index:100;
     display: flex;
@@ -58,7 +60,7 @@ left: 0;
 
     .logo{
         position: absolute;
-        top: -50px;
+        top: -40px;
         left: 50px;
     }
       
