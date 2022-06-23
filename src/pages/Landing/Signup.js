@@ -1,31 +1,35 @@
 import axios from "axios";
-import { useEffect, useState, useRef } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import Signup from "../../components/Landing/Signup";
 import { theme, flexCenter } from '../../styles/theme';
-import { useNavigate } from 'react-router-dom';
+import { useCookies } from "react-cookie";
 
 const Signuppage = () => {
+    const [, setCookie] = useCookies(["Authorization"]);
 
     const [email, setEmail] = useState();
     const [nickname, setNickname] = useState();
     const [password, setPassword] = useState();
-    const navigate = useNavigate();
     const handleEmailChange = (e) => setEmail(e.target.value);
     const handlePWChange = (e) => setPassword(e.target.value);
     const handleNicknameChange = (e) => setNickname(e.target.value);
 
 
     // TODO: valid 체크
-    const handleSubmit = () => {
-        //axios.post('/user/signup', { email: email, password: password, nickname: nickname }).then((res) => {
-        //    console.log(res);
-        //    if (res.access_token) { // 토큰 받으면
-        //        localStorage.setItem('login-token'); // 로컬 스토리지에 저장
-        //        window.location.href = '/landing/baekjoon'; // 백준 페이지로 이동
-        //    }
-        //})
-        navigate(`/`);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        axios.post('/auth/join', { email: email, password: password, nickname: nickname }).then((res) => {
+           if (res.data.token) { // 토큰 받으면
+                setCookie("Authorization", res.data.token, {
+                    path: "/",
+                    maxAge: 24 * 60 * 60,
+                })
+            
+                window.location.href = '/landing/baekjoon'; // 백준 페이지로 이동
+           }
+        })
     }
 
     return (
@@ -36,8 +40,8 @@ const Signuppage = () => {
             <form onSubmit={handleSubmit}>
                 <div className="content-area-2">
                     <Input placeholder="이메일을 입력해주세요!" name="email" onChange={handleEmailChange} />
-                    <Input placeholder="사용할 닉네임을 입력해주세요!" name="nickname" onChange={handlePWChange} />
-                    <Input placeholder="비밀번호를 입력해주세요!" name="password" type="password" onChange={handleNicknameChange} />
+                    <Input placeholder="사용할 닉네임을 입력해주세요!" name="nickname" onChange={handleNicknameChange} />
+                    <Input placeholder="비밀번호를 입력해주세요!" name="password" type="password" onChange={handlePWChange} />
                     <LoginButton>회원가입 완료</LoginButton>
                 </div>
             </form>

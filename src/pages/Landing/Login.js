@@ -4,8 +4,11 @@ import styled from "styled-components";
 import Login from "../../components/Landing/Login";
 import { theme, flexCenter } from '../../styles/theme';
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from "react-cookie";
 
 const Loginpage = () => {
+    const [, setCookie] = useCookies(["Authorization"]);
+
     const navigate = useNavigate();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -14,15 +17,20 @@ const Loginpage = () => {
     const handlePWChange = (e) => setPassword(e.target.value);
 
     // TODO: valid 체크
-    const handleSubmit = () => {
-        //axios.post('/user/login', { email: email, password: password }).then((res) => {
-        //     console.log(res);
-        //     if (res.access_token) { // 토큰 받으면
-        //         localStorage.setItem('login-token'); // 로컬 스토리지에 저장
-        //          window.location.href = '/'; // 홈으로 이동
-        //      }
-        //  })
-        navigate(`/`);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        axios.post('/auth/login', { email: email, password: password }).then((res) => {
+            if (res.data.token) { // 토큰 받으면
+                setCookie("Authorization", res.data.token, {
+                    path: "/",
+                    maxAge: 24 * 60 * 60,
+                })
+
+                window.location.href = '/'; // 홈으로 이동
+
+             }
+         })
     }
     return (
         <LaunchContainer>

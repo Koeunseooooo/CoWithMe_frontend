@@ -15,10 +15,10 @@ const Baekjoon = () => {
     }
 
     const handleClick = (e) => {
-        //axios.post('/user/baekjoon', { email: email }).then((res) => {
-        //    console.log(res);
-        //})
-        navigate(`/onboard`); // 홈으로 이동
+        axios.post('/users/baekjoon', { email: email }).then((res) => {
+            console.log(res.data);
+            navigate(`/onboard`); // 홈으로 이동
+        })
     }
 
     return (
