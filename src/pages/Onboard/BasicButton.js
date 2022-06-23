@@ -26,8 +26,8 @@ line-height: 22px;
 letter-spacing: 0.25px;
 
 .select{
-    width: 120px;
-    height: 30px;
+    width: 110px;
+    height: 27px;
     border-radius: 100px;
     padding: 10px;
     ${flexCenter}

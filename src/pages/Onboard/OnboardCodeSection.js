@@ -1,33 +1,43 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import Editor, { useMonaco } from "@monaco-editor/react";
+import { useMonaco } from "@monaco-editor/react";
+
 import { theme } from "../../styles/theme";
 
 const OnboardCodeSection = () => {
     const handleEditorChange = (value) => setSource(value);
+    const [value, setValue] = useState("def solution(lottos, win_nums): \nanswer =[]\nreturn answer; ")
     const [source, setSource] = useState();
     const [result, setResult] = useState("");
 
+
     const monaco = useMonaco();
 
-    // 에디터 레이아웃 시도중
-    monaco?.editor.defineTheme('myCoolTheme', {
-        base: 'vs-dark',
-        inherit: false,
-        rules: [
-            { token: 'green', background: 'FF0000', foreground: '00FF00', fontStyle: 'italic' },
-            { token: 'red', foreground: 'FF0000', fontStyle: 'bold underline' },
-            { background: '000000' },
-            { foreground: 'FFFFFF' }
-        ],
-        colors: {
-            'editor.foreground': '#FFFFFF',
-            'editor.background': '#000000',
-        }
-    });
-    useEffect(() => {
 
-    }, []);
+    useEffect(() => {
+        monaco && monaco.editor.defineTheme('myTheme', {
+            base: 'vs-dark',
+            automaticLayout: true,
+            rules: [{ background: 'EDF9FA' }],
+            colors: {
+                'editor.foreground': '#FFFFFF',
+                'editor.background': '#0C0A18',
+                'editor.lineHighlightBackground': '#0000FF20',
+                'editorLineNumber.foreground': '#008800',
+                'editor.selectionBackground': '#88000030',
+            }
+        });
+        monaco && monaco.editor.setTheme('myTheme');
+
+        monaco && monaco.editor.create(document.getElementById('container'), {
+            value: value,
+            language: 'python',
+            fontFamily: 'Arial',
+            fontSize: 20,
+            minimap: { enabled: false },
+        });
+
+    }, [monaco]);
 
     const submit = () => {
         // axios.post(`/`);
@@ -36,18 +46,9 @@ const OnboardCodeSection = () => {
     return (
         <Wrapper>
             <Solution>예제 소스</Solution>
-            <Editor
-                className="editor"
-                height="307px"
-                width="670px"
-                theme="vs-dark"
-                defaultLanguage="python"
-
-                defaultValue="def solution(lottos, win_nums):
-                answer = []
-                return answer;
-        }"
-                onChange={handleEditorChange} />
+            <Editor>
+                <div id="container" className="container" />
+            </Editor>
         </Wrapper>
     )
 
@@ -55,17 +56,21 @@ const OnboardCodeSection = () => {
 
 export default OnboardCodeSection;
 
-
+const Editor = styled.div`
+    width: 600px;
+    height: 300px;
+    .container{
+        height: 100%;
+        width: 100%;
+    }
+`;
 const Wrapper = styled.div`
     border-radius: 30px;
     background-color: ${theme.color.black2};
     padding: 0px;
     padding: 50px;
     margin-top: 110px;
-    .editor{
-        padding: 20px;
-        width: 686px;
-    }
+
 
 `;
 const Solution = styled.div`

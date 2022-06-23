@@ -66,7 +66,7 @@ export default SelectSection;
 
 const OutputWrapper = styled.div`
 padding: 30px;
-height: 1d0vh;
+height: 20vh;
 display: flex;
 gap: 36px;
 flex-direction: column;
