@@ -3,12 +3,12 @@ import styled from "styled-components";
 import CodeEditor from "./CodeSection";
 import CodeSection from "./CodeSection";
 import OutputSection from "./OutputSection";
-
+import SelectSection from "./SelectSection";
 import axios from "axios";
 
 
-const RunSection = () => {
-
+const RunSection = ({ type, dummy, setAnswer }) => {
+    console.log("run", type, dummy);
     const [result, setResult] = useState("");
     const [source, setSource] = useState();
     // const monaco = useMonaco();
@@ -19,7 +19,6 @@ const RunSection = () => {
     // axios.post(``)
     //   .then(res => {})
 
-
     const submit = () => {
         // axios.post(`/`);
         setResult("정답입니다!")
@@ -28,7 +27,8 @@ const RunSection = () => {
     return (
         <Wrapper>
             <CodeSection />
-            <OutputSection />
+            {type === 'onboard' ? <SelectSection dummy={dummy} setAnswer={setAnswer} /> : <OutputSection />}
+
         </Wrapper>
     );
 }

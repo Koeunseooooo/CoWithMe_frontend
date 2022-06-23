@@ -4,16 +4,21 @@ import { useParams } from "react-router-dom"
 import styled from "styled-components";
 import { theme } from "../../styles/theme";
 
-const GuideSection = () => {
+const GuideSection = ({ type, dummy }) => {
+    // type: code or onboard
+    // - code: api call
+    // - onboard: 데이터 뿌려주기
+    console.log(type, dummy);
     const { id } = useParams();
-    const [problem, setProblem] = useState({});
+    const [problem, setProblem] = useState(dummy);
     const [answer, setAnswer] = useState("");
     const [result, setResult] = useState("");
 
     useEffect(() => {
-
+        //if(type === 'code'){ // 타입이 코드일 때만 api call하기
         // axios.get(`/problem/${id}`)
         //   .then(res => {})
+        //}
 
         setProblem({
             title: 'A + B',
@@ -34,7 +39,7 @@ const GuideSection = () => {
     return (
         <Wrapper>
             <div className="problem-name">
-                신규 아이디 추천
+                {dummy.title}
             </div>
             <div className="problem">
                 <div className="problem-description">
@@ -42,25 +47,29 @@ const GuideSection = () => {
                 </div>
                 {problem &&
                     <Content>
-                        <p>{problem.problem}</p>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>순위</th>
-                                    <th>당첨 내용</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {problem.examples?.map(example => (
+                        <p>{dummy.problem}</p>
+
+                        {/* 예시가 있는 경우 */}
+                        {dummy.examples &&
+                            <table>
+                                <thead>
                                     <tr>
-                                        <td>2</td>
-                                        <td>4개 번호가 일치</td>
+                                        <th>순위</th>
+                                        <th>당첨 내용</th>
                                     </tr>
+                                </thead>
+                                <tbody>
+                                    {dummy.examples?.map(example => (
+                                        <tr key={example.id}>
+                                            <td>2</td>
+                                            <td>4개 번호가 일치</td>
+                                        </tr>
 
-                                ))}
-                            </tbody>
+                                    ))}
+                                </tbody>
 
-                        </table>
+                            </table>
+                        }
                     </Content>}
             </div>
         </Wrapper>
