@@ -20,7 +20,7 @@ const HeaderBlock = styled.div`
   
 
   .head_text{
-    margin-left:50px;
+    // margin-left:20px;
     font-family: 'neoB';
     font-style: normal;
     font-weight: 700;
