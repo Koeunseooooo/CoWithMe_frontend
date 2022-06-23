@@ -82,7 +82,7 @@ const Home = ({ history }) => {
       <SubHeader headText={"코윗미 메인 홈"}/>
       <Header isMainHome/>
 
-      <div>
+      {/* <div>
         <h3>{email}</h3>
         <button onClick={join}>Join</button>
         <button onClick={login}>Login</button>
@@ -91,7 +91,7 @@ const Home = ({ history }) => {
       </div>
       <div>
         {problems?.map(problem => <ProblemCard key={problem.id} problem={problem} />)}
-      </div>
+      </div> */}
     </>
   )
 }
