@@ -10,6 +10,21 @@ const OnboardCodeSection = () => {
 
     const monaco = useMonaco();
 
+    // 에디터 레이아웃 시도중
+    monaco?.editor.defineTheme('myCoolTheme', {
+        base: 'vs-dark',
+        inherit: false,
+        rules: [
+            { token: 'green', background: 'FF0000', foreground: '00FF00', fontStyle: 'italic' },
+            { token: 'red', foreground: 'FF0000', fontStyle: 'bold underline' },
+            { background: '000000' },
+            { foreground: 'FFFFFF' }
+        ],
+        colors: {
+            'editor.foreground': '#FFFFFF',
+            'editor.background': '#000000',
+        }
+    });
     useEffect(() => {
 
     }, []);
@@ -24,8 +39,8 @@ const OnboardCodeSection = () => {
             <Editor
                 className="editor"
                 height="307px"
+                width="670px"
                 theme="vs-dark"
-                fontSize="30px"
                 defaultLanguage="python"
 
                 defaultValue="def solution(lottos, win_nums):
@@ -44,10 +59,10 @@ export default OnboardCodeSection;
 const Wrapper = styled.div`
     border-radius: 30px;
     background-color: ${theme.color.black2};
-    padding: 30px;
+    padding: 0px;
+    padding: 50px;
     margin-top: 110px;
     .editor{
-        margin-top: 34px;
         padding: 20px;
         width: 686px;
     }

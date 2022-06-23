@@ -9,38 +9,31 @@ const OnboardGuideSection = ({ problem }) => {
     const [result, setResult] = useState("");
 
     return (
-        <Wrapper>
-            <div className="problem-name">
+        <GuideSection>
+            <ProblemName>
                 {problem.title}
-            </div>
-            <div className="problem">
-                <div className="problem-description">
-                    문제 설명
+            </ProblemName>
+            <Wrapper>
+                <div className="problem">
+                    <div className="problem-description">
+                        문제 설명
+                    </div>
+                    {problem &&
+                        <Content>
+                            {problem.problem}
+                        </Content>}
                 </div>
-                {problem &&
-                    <Content>
-                        {problem.problem}
-                    </Content>}
-            </div>
-        </Wrapper>
+            </Wrapper>
+        </GuideSection>
     )
 }
 export default OnboardGuideSection;
 
-const Wrapper = styled.div`
-width: 75.8rem;
-height: 50vh;
-overflow-y: auto;
-border-radius: 30px;
-font-family: 'neoB';
-padding: 20px;
-
-background-color: ${theme.color.black2};
-.problem{
-    padding: 30px;
-    line-height: 28px;
-}
-.problem-name{
+const GuideSection = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+const ProblemName = styled.div`
     font-family: 'AppleSDGothicNeoM00';
     font-weight: 400;
     font-size: 32px;
@@ -48,25 +41,39 @@ background-color: ${theme.color.black2};
     line-height: 46px;
     letter-spacing: 0.25px;
     margin-bottom: 36px;
-  }
+    }`
 
-.problem-description{
-    color: ${theme.color.green};
-    font-weight: 400;
-    font-size: 24px;
-    font-family: 'AppleSDGothicNeoM00';
-    line-height: 33px;
-    letter-spacing: 0.25px;
+const Wrapper = styled.div`
+            width: 75.8rem;
+            height: 50vh;
+            overflow-y: auto;
+            border-radius: 30px;
+            font-family: 'neoB';
+            padding: 20px;
+
+            background-color: ${theme.color.black2};
+            .problem{
+            padding: 30px;
+            line-height: 28px;
 }
-`
+           
+            .problem-description{
+            color: ${theme.color.green};
+            font-weight: 400;
+            font-size: 24px;
+            font-family: 'AppleSDGothicNeoM00';
+            line-height: 33px;
+            letter-spacing: 0.25px;
+}
+            `
 
 const Content = styled.div`
-margin-top: 20px;
-font-family: 'AppleSDGothicNeoM00';
-padding: 10px;
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 28px;
-letter-spacing: 0.25px;
-`
+            margin-top: 20px;
+            font-family: 'AppleSDGothicNeoM00';
+            padding: 10px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 28px;
+            letter-spacing: 0.25px;
+            `

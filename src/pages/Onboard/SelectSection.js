@@ -52,36 +52,25 @@ const SelectSection = ({ problem, markProblem }) => {
 export default SelectSection;
 
 
-const Input = styled.input`
-width: 145px;
-height: 46px;
-border-radius: 100px;
-padding: 10px;
-appearance: none;
-background-color: #2DDE54;
-color: black;
-&:checked {
-    background-color: #2DDE54;
-    color: black;
-  }
-`;
 
 const OutputWrapper = styled.div`
 padding: 30px;
+height: 1d0vh;
 display: flex;
 gap: 36px;
 flex-direction: column;
-background-color: ${theme.color.black4};
+background-color: #131022;
 
 .button-wrapper{
     flex-direction: row;
     ${flexCenter}
-    gap: 40px;
+    gap: 20px;
 
 }
 .output-title{
     font-family: 'AppleSDGothicNeoB00';
     font-style: normal;
+    margin-left: 40px;
     font-weight: 400;
     font-size: 24px;
     line-height: 33px;
@@ -92,16 +81,16 @@ background-color: ${theme.color.black4};
 `;
 
 const Button = styled.button`
-width: 165px;
-height: 48px;
-border-radius: 100px;
-align-self: center;
-color: ${(props) => props.color === 'grey' ? theme.color.white : theme.color.black};
-background-color: ${(props) => props.color === 'grey' ? theme.color.grey : theme.color.green};
-font-family: 'AppleSDGothicNeoB00';
-font-weight: 400;
-font-size: 16px;
-line-height: 22px;
-letter-spacing: 0.25px;
+    width: 165px;
+    height: 48px;
+    border-radius: 100px;
+    align-self: center;
+    color: ${(props) => props.color === 'grey' ? theme.color.white : theme.color.black};
+    background-color: ${(props) => props.color === 'grey' ? theme.color.grey : theme.color.green};
+    font-family: 'AppleSDGothicNeoB00';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.25px;
 
 `
