@@ -2,9 +2,10 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import OnboardingHeader from "../../components/SubHeader/OnboardingHeader";
 import styled from "styled-components";
-import GuideSection from "../../components/Editor/GuideSection";
+import OnboardGuideSection from "./OnboardGuideSection";
+import OnboardCodeSection from "./OnboardCodeSection";
+import SelectSection from "./SelectSection";
 import BreadCrumb from "../../components/BreadCrumb/OnboardCrumb";
-import RunSection from "../../components/Editor/RunSection";
 import { theme, flexCenter } from '../../styles/theme';
 
 
@@ -69,8 +70,11 @@ const Onborad = () => {
               </>
             }
           */}
-            <GuideSection type="onboard" dummy={dummy} /> {/* dummy => problem으로 수정 */}
-            <RunSection type="onboard" dummy={dummy} setAnswer={setAnswer} />
+            <OnboardGuideSection dummy={dummy} /> {/* dummy => problem으로 수정 */}
+            <RunSection>
+              <OnboardCodeSection />
+              <SelectSection dummy={dummy} />
+            </RunSection>
           </ContentWrapper>
         </div>
       </Wrapper>
@@ -85,22 +89,29 @@ const Wrapper = styled.div`
   padding: 20px;
 `;
 
+const RunSection = styled.div`
+width: 75.5rem;
+border-radius: 30px;
+display: flex;
+flex-direction: column;
+`;
+
 const ContentWrapper = styled.div`
+display: flex;
+padding: 50px;
+width: 100 %;
+
+gap: 44px;
+min - height: 80vh;
+box - sizing: border - box;
+background - color: ${theme.color.black3};
+box - shadow: 0px 0px 15px rgba(255, 255, 255, 0.16);
+border - radius: 40px 40px 0px 0px;
+
+  .main - wrapper{
   display: flex;
-  padding: 50px;
-  width: 100%;
-
-  gap: 44px;
-  min-height: 80vh;
-  box-sizing: border-box;
-  background-color: ${theme.color.black3};
-  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.16);
-  border-radius: 40px 40px 0px 0px;
-
-  .main-wrapper{
-    display: flex;
-    flex-direction : column;
-  }
+  flex - direction : column;
+}
 
 
 `;
