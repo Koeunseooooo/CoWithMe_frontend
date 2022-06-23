@@ -1,98 +1,68 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie"
 import styled from "styled-components";
-import ProblemCard from "../../components/ProblemCard";
 import Header from '../../components/Header'
-import Button from '../../components/Button'
 import ProblemBox from '../../components/ProblemBox'
 import SubHeader from '../../components/SubHeader'
-import { theme, flexCenter } from '../../styles/theme';
+import { theme } from '../../styles/theme';
 import Graph1SectionForHome from "../../components/Graph/Graph1SectionForHome";
 import Graph3SectionForHome from "../../components/Graph/Graph3SectionForHome";
 
 const Home = ({ history }) => {
-  const [, setCookie, removeCookie] = useCookies(["Authorization"]);
-
-  const [email, setEmail] = useState("");
   const [problems, setProblems] = useState(null);
   const [chart1Data, setChart1Data] = useState({});
   const [chart3Data, setChart3Data] = useState({});
 
 
   useEffect(() => {
-    
-    // TODO: 연결
-    // axios.get('/recommends')
-    //   .then(res => {
+    axios.get(`/users/me`)
+      .then(res => {
+        const grade = res?.data?.Grades[res?.data?.Grades?.length - 1];
+        setChart1Data({
+          passer_score: [60, 60, 60, 80, 60, 80],    
+          myscore: [
+            grade?.greedy,
+            grade?.search,
+            grade?.dp,
+            grade?.string,
+            grade?.implement,
+            grade?.etc
+          ]
+        })
+      })
 
-    //   })
-
-    setChart1Data({
-      myscore: [80, 50, 30, 40, 100, 20],
-      passer_score: [60, 60, 60, 80, 60, 80],
-    })
+    axios.get(`/problems/recommend`)
+      .then(res => {
+        // console.log(res.data);
+        setProblems([
+          {
+            id: 1,
+            title: 'A+B',
+            category: 'DP'
+          },
+          {
+            id: 2,
+            title: '피보나치 함수',
+            category: 'BFS'
+          },
+          {
+            id: 3,
+            title: '유기농 배추',
+            category: '문자열'
+          },
+          {
+            id: 4,
+            title: '체스판 다시 칠하기',
+            category: '구현'
+          }
+        ])
+      })
 
     setChart3Data({
       focus_rate:[40,70,50],
     })
 
-    setProblems([
-      {
-        id: 1,
-        title: 'A+B',
-        category: 'DP'
-      },
-      {
-        id: 2,
-        title: '피보나치 함수',
-        category: 'BFS'
-      },
-      {
-        id: 3,
-        title: '유기농 배추',
-        category: '문자열'
-      },
-      {
-        id: 4,
-        title: '체스판 다시 칠하기',
-        category: '구현'
-      }
-    ])
   }, []);
-
-  const join = async () => {
-    // const resp = await axios.post('/auth/join', {})
-
-    setCookie("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJoQGguY29tIiwiaWF0IjoxNjU1ODg0NTg1LCJleHAiOjE2NTU5NzA5ODV9.vgHvGEy400xVeMemCdLg9PESL75KJY6_fyMzfOsy46A", {
-      path: "/",
-      maxAge: 24 * 60 * 60,
-    })
-    window.location.href = "/";
-  }
-
-  const login = async () => {
-    // const resp = await axios.post('/auth/join', {})
-
-    setCookie("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJoQGguY29tIiwiaWF0IjoxNjU1ODg0NTg1LCJleHAiOjE2NTU5NzA5ODV9.vgHvGEy400xVeMemCdLg9PESL75KJY6_fyMzfOsy46A", {
-      path: "/",
-      maxAge: 24 * 60 * 60,
-    })
-    window.location.href = "/";
-  }
-
-  const logout = () => {
-    removeCookie("Authorization");
-    window.location.href = "/";
-  }
-
-  const loadUser = () => {
-    axios.get('/users/me')
-      .then(res => {
-        console.log(res.data);
-        setEmail(res.data?.email)
-      })
-  }
 
   return (
     <>
