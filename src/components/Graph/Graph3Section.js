@@ -158,7 +158,7 @@ const Wrapper3 = styled.div`
     }
 
     .description{
-        font-family: 'AppleSDGothicNeoM00';
+        font-family: 'neoM';
         font-style: normal;
         font-weight: 400;
         font-size: 15px;

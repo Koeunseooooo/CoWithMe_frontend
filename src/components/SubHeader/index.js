@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { theme } from '../../styles/theme';
 
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
@@ -9,7 +10,7 @@ import { useCookies } from 'react-cookie';
 const HeaderBlock = styled.div`
   position: sticky;
   top: 0;
-  background-color: #1E1E1E;
+  background-color: ${theme.color.black2};
   height:100px;
   width:85vw;
   float:right;
