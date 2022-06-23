@@ -185,6 +185,7 @@ const ContentWrapper = styled.div`
     margin-bottom:10px;
   }
 
+
   .section{
     display:flex;
     flex-direction:column;

@@ -21,21 +21,26 @@ const Chart = () => {
   const [chart3Data, setChart3Data] = useState({});
 
   useEffect(() => {
-    axios.get(`/users/me`)
-      .then(res => {
-        const grade = res?.data?.Grades[res?.data?.Grades?.length - 1];
-        setChart1Data({
-          passer_score: [60, 60, 60, 80, 60, 80],    
-          myscore: [
-            grade?.greedy,
-            grade?.search,
-            grade?.dp,
-            grade?.string,
-            grade?.implement,
-            grade?.etc
-          ]
-        })
-      })
+    // axios.get(`/users/me`)
+    //   .then(res => {
+    //     const grade = res?.data?.Grades[res?.data?.Grades?.length - 1];
+    //     setChart1Data({
+    //       passer_score: [60, 60, 60, 80, 60, 80],    
+    //       myscore: [
+    //         grade?.greedy,
+    //         grade?.search,
+    //         grade?.dp,
+    //         grade?.string,
+    //         grade?.implement,
+    //         grade?.etc
+    //       ]
+    //     })
+    //   })
+
+    setChart1Data({
+      passer_score: [60, 60, 60, 80, 60, 80],    
+      myscore: [30, 30, 30, 30, 60, 20],    
+    })
 
     setChart2Data({
       dp_score: [20, 20, 30, 40, 55, 60],
