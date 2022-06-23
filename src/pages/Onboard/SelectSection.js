@@ -1,28 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { theme, flexCenter } from '../../styles/theme';
+import BasicButton from "./BasicButton";
 
-const SelectSection = ({ dummy, setAnswer }) => {
-    console.log(dummy);
+const SelectSection = ({ problem, markProblem }) => {
     const [result, setResult] = useState(""); // 서버로 제출할 정답
     const [source, setSource] = useState();
     // const monaco = useMonaco();
-
-    const handleEditorChange = (value) => setSource(value);
-
-    const handleClick = (e) => {
-        console.log(e.target);
-
-    }
 
     // TODO: 소스코드 전송
     // axios.post(``)
     //   .then(res => {})
 
+    const [isCategorySelect, setIsCategorySelect] = useState(false);
+    const categoryList = [problem.choice1, problem.choice2, problem.choice3, problem.choice4];
+
+    const handleClick = (idx) => {
+        const newArr = Array(categoryList.length).fill(false);
+        newArr[idx] = true;
+        setIsCategorySelect(newArr);
+        setResult(categoryList[idx]);
+    };
 
     const submit = () => {
-        // axios.post(`/`);
-        setResult("정답입니다!")
+        markProblem(result);
     }
 
     return (
@@ -31,36 +32,39 @@ const SelectSection = ({ dummy, setAnswer }) => {
                 정답 선택
             </div>
             <div className="button-wrapper">
-                <RadioButton onClick={handleClick}>{dummy.choice1}</RadioButton>
-                <RadioButton onClick={handleClick}>{dummy.choice2}</RadioButton>
-                <RadioButton onClick={handleClick}>{dummy.choice3}</RadioButton>
-                <RadioButton onClick={handleClick}>{dummy.choice4}</RadioButton>
+                {categoryList.map((elm, index) => {
+                    return (
+                        <BasicButton
+                            key={index}
+                            isSelected={isCategorySelect[index]}
+                            handleClick={handleClick}
+                            elementIndex={index}
+                            content={elm}
+                        />
+                    );
+                })}
             </div>
-            <Button color="grey">다음 문제 풀기</Button>
+            <Button color="grey" onClick={submit}>다음 문제 풀기</Button>
         </OutputWrapper>
     );
 };
 
 export default SelectSection;
 
-const RadioButton = styled.div`
+
+const Input = styled.input`
 width: 145px;
-height: 35px;
+height: 46px;
 border-radius: 100px;
 padding: 10px;
-${flexCenter}
-color: #2DDE54;
-border: 1px solid #2DDE54;
-background-color: black;
-font-weight: 400;
-font-size: 16px;
-font-family: 'AppleSDGothicNeoB00';
-line-height: 22px;
-&:hover{
+appearance: none;
+background-color: #2DDE54;
+color: black;
+&:checked {
     background-color: #2DDE54;
     color: black;
-}
-`
+  }
+`;
 
 const OutputWrapper = styled.div`
 padding: 30px;
