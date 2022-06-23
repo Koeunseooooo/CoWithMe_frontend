@@ -90,7 +90,7 @@ const Home = ({ history }) => {
 
   return (
     <>
-      <SubHeader headText={"마이 코딩"} />
+      <SubHeader headText={"코윗미 메인 홈"} />
       <Header isMainHome />
         <Wrapper>
           <div className="main-wrapper">
