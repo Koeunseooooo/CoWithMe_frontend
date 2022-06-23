@@ -29,7 +29,7 @@ const Home = ({ history }) => {
       myscore: [80, 50, 30, 40, 100, 20],
       passer_score: [60, 60, 60, 80, 60, 80],
     })
-    
+
     setProblems([
       {
         id: 1,
@@ -109,13 +109,23 @@ const Home = ({ history }) => {
                 <div className="section-name">
                   내 코딩 영역 차트
                 </div>
-                <Graph1Section chart1Data={chart1Data}/>
+                {/* <Graph1Section chart1Data={chart1Data}/> */}
               </div>
               <div className="each-wrapper">
                 <div className="section-name">
                   코딩 가이드
                 </div>
-              </div>
+                <div className="guideBlock">
+                  <img className="guide_img" src={require('../../assets/Graphic/Coding Guide/01.svg').default} alt="" />
+                  <div className="problem_title">현직 개발자의 코테 뿌시기</div>
+                  <div className="problem_source">코테 문제 속의 노하우</div>
+                </div>
+                <div className="guideBlock1">
+                  <img className="guide_img1" src={require('../../assets/Graphic/Coding Guide/02.svg').default} alt="" />
+                  <div className="title">문제 속의 진짜 문제</div>
+                  <div className="source">숨겨져 있던 핵심이 무엇일까?</div>
+                </div>
+                </div>
             </ContentWrapper>
           </div>
         </Wrapper>
@@ -132,8 +142,8 @@ const RightWrapper = styled.div`
   flex-direction:column;
 `
 const Wrapper = styled.div`
-margin-left: 143px;
-padding: 20px;
+  margin-left: 143px;
+  padding: 20px;
 
 `;
 const ContentWrapper = styled.div`
@@ -155,9 +165,9 @@ const ContentWrapper = styled.div`
     flex-direction : column;
   }
 
-  .each-wrapper{
-    background-color:red;
-  }
+  // .each-wrapper{
+  //   background-color:red;
+  // }
 
   .section-name{
     font-family: neoEB;
@@ -174,15 +184,82 @@ const ContentWrapper = styled.div`
     display:flex;
     flex-direction:column;
   }
-`;
 
-  {/* <div>
-        <h3>{email}</h3>
-        <button onClick={join}>Join</button>
-        <button onClick={login}>Login</button>
-        <button onClick={logout}>LogOut</button>
-        <button onClick={loadUser}>Load</button>
-      </div>
-      <div>
-        {problems?.map(problem => <ProblemCard key={problem.id} problem={problem} />)}
-      </div> */}
+  .guideBlock{
+    width: 300px;
+    height: 480px;
+    background: radial-gradient(50% 50% at 50% 50%, #493CAF 0%, #382C8E 100%);
+    border-radius: 30px;
+  }
+
+  .guideBlock1{
+    margin-top:25px;
+    width: 300px;
+    height: 480px;
+    background: radial-gradient(50% 50% at 50% 50%, #EC7138 0%, #B74B18 100%);
+    border-radius: 30px;
+    position:relative;
+  }
+
+  .guide_img{
+    width:90%;
+    height:60%;
+    display: block; 
+    margin: 0px auto;
+    padding-top:50px;
+    cursor:pointer;
+  }
+
+  .guide_img1{
+    width:100%;
+    position:absolute;
+    cursor:pointer;
+  }
+
+  .problem_title{
+    font-size: 20px;
+    font-family: 'AppleSDGothicNeoEB00';
+    font-style: normal;
+    padding-top:30px;
+    padding-left:30px;
+    font-weight: 600;
+    line-height: 32px;
+    /* identical to box height */
+    letter-spacing: 0.25px;
+  }
+
+  .problem_source{
+    font-size: 18px;
+    font-family: 'AppleSDGothicNeoEB00';
+    font-style: normal;
+    font-weight: 400;
+    padding-left:30px;
+    line-height: 34px;
+    /* identical to box height */
+    letter-spacing: 0.25px;
+  }
+
+  .title{
+    font-size: 20px;
+    font-family: 'AppleSDGothicNeoEB00';
+    font-style: normal;
+    padding-top:370px;
+    padding-left:30px;
+    font-weight: 600;
+    line-height: 32px;
+    /* identical to box height */
+    letter-spacing: 0.25px;
+  }
+
+  .source{
+    font-size: 18px;
+      font-family: 'AppleSDGothicNeoEB00';
+      font-style: normal;
+      font-weight: 400;
+      padding-left:30px;
+      line-height: 34px;
+      /* identical to box height */
+      letter-spacing: 0.25px;
+  }
+  
+`;
