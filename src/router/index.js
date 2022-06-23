@@ -20,6 +20,7 @@ const Router = () => {
         <Route exact path="/solve/:id" element={<Solve />} />
         <Route exact path="/chart" element={<Chart />} />
         <Route exact path="/onboard" element={<Onborad />} />
+        <Route exact path="/problems" element={<Problems />} />
         
         {/* 테스트 후 제거 필요 */}
         <Route exact path="/test" element={<Test />} /> 
