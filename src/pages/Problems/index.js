@@ -97,7 +97,6 @@ function selectCategory() {
       }
     ])
   }
-
  
   return (
     <>
@@ -118,37 +117,37 @@ function selectCategory() {
 
                   
                   <div className="check-block">
-                    <input type="radio" id="check1" name="category" onClick={selectCategory} />
-                    <label for="check1"></label>
+                    <input type="radio" id="1" name="category" onClick={selectCategory} />
+                    <label for="1"></label>
                     <div className="content" >DFS/BFS</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="check2" name="category" onClick={selectCategory}/>
-                    <label for="check2"></label>
+                    <input type="radio" id="2" name="category" onClick={selectCategory}/>
+                    <label for="2"></label>
                     <div className="content">그리디/탐색</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="check3" name="category" onClick={selectCategory} />
-                    <label for="check3"></label>
+                    <input type="radio" id="3" name="category" onClick={selectCategory} />
+                    <label for="3"></label>
                     <div className="content" >DP</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="check4"  name="category" onClick={selectCategory}/>
-                    <label for="check4"></label>
+                    <input type="radio" id="4"  name="category" onClick={selectCategory}/>
+                    <label for="4"></label>
                     <div className="content" >문자열</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="check5"  name="category" onClick={selectCategory}/>
-                    <label for="check5"></label>
+                    <input type="radio" id="5"  name="category" onClick={selectCategory}/>
+                    <label for="5"></label>
                     <div className="content" >구현</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="check6"  name="category" onClick={selectCategory}/>
+                    <input type="radio" id="6"  name="category" onClick={selectCategory}/>
                     <label for="check6"></label>
                     <div className="content" >기타</div>
                   </div>
@@ -307,7 +306,7 @@ input[type="radio"] + label{
   position: relative;
 }
 
-input[id="check1"]:checked + label::after{
+input[id="1"]:checked + label::after{
   content:'';
   background:#2DDE54;
   font-size: 15px;
@@ -319,7 +318,7 @@ input[id="check1"]:checked + label::after{
   top:0;
 }
 
-input[id="check2"]:checked + label::after{
+input[id="2"]:checked + label::after{
   content:'';
   background:#2DDE54;
   font-size: 15px;
@@ -331,7 +330,7 @@ input[id="check2"]:checked + label::after{
   top:0;
 }
 
-input[id="check3"]:checked + label::after{
+input[id="3"]:checked + label::after{
   content:'';
   background:#2DDE54;
   font-size: 15px;
@@ -343,7 +342,7 @@ input[id="check3"]:checked + label::after{
   top:0;
 }
 
-input[id="check4"]:checked + label::after{
+input[id="4"]:checked + label::after{
   content:'';
   background:#2DDE54;
   font-size: 15px;
@@ -355,7 +354,7 @@ input[id="check4"]:checked + label::after{
   top:0;
 }
 
-input[id="check5"]:checked + label::after{
+input[id="5"]:checked + label::after{
   content:'';
   background:#2DDE54;
   font-size: 15px;
@@ -367,7 +366,7 @@ input[id="check5"]:checked + label::after{
   top:0;
 }
 
-input[id="check6"]:checked + label::after{
+input[id="6"]:checked + label::after{
   content:'';
   background:#2DDE54;
   font-size: 15px;
