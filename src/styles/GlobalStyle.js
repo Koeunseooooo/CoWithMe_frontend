@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     html{
         font-size: 62.5%;
         color: ${theme.color.white};
-        background-color: ${theme.color.black};
+        background-color: ${theme.color.black2};
     }
 
 `;

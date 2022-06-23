@@ -21,6 +21,7 @@ const HeaderBlock = styled.div`
     display:flex;
     flex-direction:column;
     align-items: center;
+    
   }
   
   .logo{
@@ -28,9 +29,11 @@ const HeaderBlock = styled.div`
     position: absolute;
     left: 0.79%;
     right: 93.59%;
-    top: 5.27%;
+    top: 3%;
     bottom: 93.26%;
-    margin-left:5px;
+    margin-left:15px;
+    display: block; 
+    // margin: 0px auto;
   }
 
   .block{
@@ -71,9 +74,7 @@ const HeaderBlock = styled.div`
     letter-spacing: 0.25px;
     color: #FFFFFF;
   }
-  .nega{
-    margin-bottom:40px;
-  }
+  
 `
 function Header({ isMainHome, isTest, isMyCoding }) {
 
@@ -82,8 +83,9 @@ function Header({ isMainHome, isTest, isMyCoding }) {
   return (
     <>
       <HeaderBlock>
-        <img className="logo" src={require('../../assets/Header/Logo/Cowithme.svg').default} alt="" />
-
+        <div className="imgblock">
+          <img className="logo" src={require('../../assets/Header/Logo/Cowithme.svg').default} alt="" />
+        </div>
 
         <div className="container">
           {isMainHome ? (
