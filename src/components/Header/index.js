@@ -8,7 +8,7 @@ import { useCookies } from 'react-cookie';
 
 
 const HeaderBlock = styled.div`
-  
+  z-index:5;
   position: fixed;
   left: 0;
   top: 0;

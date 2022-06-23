@@ -4,14 +4,19 @@ import { useCookies } from "react-cookie"
 import styled from "styled-components";
 import ProblemCard from "../../components/ProblemCard";
 import Header from '../../components/Header'
+import Button from '../../components/Button'
+import ProblemBox from '../../components/ProblemBox'
 import SubHeader from '../../components/SubHeader'
 import { theme, flexCenter } from '../../styles/theme';
+import Graph1Section from "../../components/Graph/Graph1Section";
 
 const Home = ({ history }) => {
   const [, setCookie, removeCookie] = useCookies(["Authorization"]);
 
   const [email, setEmail] = useState("");
   const [problems, setProblems] = useState(null);
+  const [chart1Data, setChart1Data] = useState({});
+
 
   useEffect(() => {
     // TODO: 연결
@@ -20,6 +25,11 @@ const Home = ({ history }) => {
 
     //   })
 
+    setChart1Data({
+      myscore: [80, 50, 30, 40, 100, 20],
+      passer_score: [60, 60, 60, 80, 60, 80],
+    })
+    
     setProblems([
       {
         id: 1,
@@ -84,9 +94,28 @@ const Home = ({ history }) => {
         <Wrapper>
           <div className="main-wrapper">
             <ContentWrapper>
-              <div className="each-wrapper"></div>
-              <div className="each-wrapper"></div>
-              <div className="each-wrapper"></div>
+              <div className="each-wrapper">
+                <div className="section-name">
+                  맞춤 추천 문제
+                </div>
+                <div className="section">
+                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
+                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
+                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
+                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
+                </div>
+              </div>
+              <div className="each-wrapper">
+                <div className="section-name">
+                  내 코딩 영역 차트
+                </div>
+                <Graph1Section chart1Data={chart1Data}/>
+              </div>
+              <div className="each-wrapper">
+                <div className="section-name">
+                  코딩 가이드
+                </div>
+              </div>
             </ContentWrapper>
           </div>
         </Wrapper>
@@ -128,6 +157,22 @@ const ContentWrapper = styled.div`
 
   .each-wrapper{
     background-color:red;
+  }
+
+  .section-name{
+    font-family: neoEB;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    color: #39E25E;
+    margin-bottom:10px;
+  }
+
+  .section{
+    display:flex;
+    flex-direction:column;
   }
 `;
 
