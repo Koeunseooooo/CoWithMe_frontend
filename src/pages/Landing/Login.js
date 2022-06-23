@@ -4,8 +4,11 @@ import styled from "styled-components";
 import Login from "../../components/Landing/Login";
 import { theme, flexCenter } from '../../styles/theme';
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from "react-cookie";
 
 const Loginpage = () => {
+    const [, setCookie] = useCookies(["Authorization"]);
+
     const navigate = useNavigate();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -49,30 +52,46 @@ const Loginpage = () => {
         }
         // navigate(`/`);
 
-    }
-    return (
-        <LaunchContainer>
-            <div className="content-area-1">
-                <Login />
-            </div>
-            <form onSubmit={handleSubmit}>
-                <div className="content-area-2">
+        // TODO: valid 체크
+        const handleSubmit = (e) => {
+            e.preventDefault();
 
-                    <Input placeholder="이메일을 입력해주세요!" name="email" onChange={handleEmailChange} />
-                    <ErrorMessage>{emailError}</ErrorMessage>
-                    <Input type="password" placeholder="비밀번호를 입력해주세요!" name="password" onChange={handlePWChange} />
-                    <ErrorMessage>{pwError}</ErrorMessage>
-                    <LoginButton>코윗미 계정으로 로그인하기</LoginButton>
+            axios.post('/auth/login', { email: email, password: password }).then((res) => {
+                if (res.data.token) { // 토큰 받으면
+                    setCookie("Authorization", res.data.token, {
+                        path: "/",
+                        maxAge: 24 * 60 * 60,
+                    })
 
-                    <Wrapper>
-                        <div className="auth" onClick={() => navigate(`/landing/signup`)}>회원가입하기</div>
-                        <div className="auth">비밀번호 찾기</div>
-                    </Wrapper>
+                    window.location.href = '/'; // 홈으로 이동
 
+                }
+            })
+        }
+        return (
+            <LaunchContainer>
+                <div className="content-area-1">
+                    <Login />
                 </div>
-            </form>
-        </LaunchContainer >
-    )
+                <form onSubmit={handleSubmit}>
+                    <div className="content-area-2">
+
+                        <Input placeholder="이메일을 입력해주세요!" name="email" onChange={handleEmailChange} />
+                        <ErrorMessage>{emailError}</ErrorMessage>
+                        <Input type="password" placeholder="비밀번호를 입력해주세요!" name="password" onChange={handlePWChange} />
+                        <ErrorMessage>{pwError}</ErrorMessage>
+                        <LoginButton>코윗미 계정으로 로그인하기</LoginButton>
+
+                        <Wrapper>
+                            <div className="auth" onClick={() => navigate(`/landing/signup`)}>회원가입하기</div>
+                            <div className="auth">비밀번호 찾기</div>
+                        </Wrapper>
+
+                    </div>
+                </form>
+            </LaunchContainer >
+        )
+    }
 }
 
 export default Loginpage;
