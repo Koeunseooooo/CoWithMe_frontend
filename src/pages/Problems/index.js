@@ -28,25 +28,27 @@ const Problems = ({ history }) => {
     <>
       <SubHeader headText={"맞춤 유형 문제"} />
       <Header isTest />
+      {/* <div className="section-name">
+                  내 코딩 영역 차트
+                </div> */}
         <Wrapper>
           <div className="main-wrapper">
             <ContentWrapper>
               <div className="each-wrapper">
-                <div className="section-name">
-                  맞춤 유형 문제
-                </div>
                 <div className="section">
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
                 </div>
               </div>
               <div className="each-wrapper">
-                <div className="section-name">
-                  내 코딩 영역 차트
-                </div>
-                {/* <Graph1Section chart1Data={chart1Data}/> */}
+                <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
+                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
+                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
+                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
+              </div>
+              <div className="each-wrapper">
+                <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
+                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
+                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
+                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
               </div>
             </ContentWrapper>
           </div>
@@ -79,7 +81,7 @@ const ContentWrapper = styled.div`
   background-color: ${theme.color.black3};
   box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.16);
   border-radius: 40px 40px 0px 0px;
-  grid-template-columns: 400px 400px 300px;
+  grid-template-columns: 250px 400px 400px;
 
   .main-wrapper{
     display: flex;
