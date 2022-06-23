@@ -36,16 +36,16 @@ export default OutputSection;
 
 const OutputWrapper = styled.div`
 padding: 30px;
-margin-top: 40px;
 display: flex;
 flex-direction: column;
-background-color: ${theme.color.black4};
+background-color: ${theme.color.black2};
 .console{
     padding: 30px;
-    margin-top: 36px;
+    margin-top: 30px;
     height: 68px;
     font-size: 18px;
     font-family: 'AppleSDGothicNeoB00';  
+    background-color: ${theme.color.black2};
 }
 .button-wrapper{
     ${flexCenter}

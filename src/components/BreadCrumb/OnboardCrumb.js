@@ -20,12 +20,12 @@ export default BreadCrumb;
 const BreadCrumbWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 100px;
 
   height: 40px;
   width: 100%;
   color: white;
-  background-color: ${theme.color.black};
+  background-color: ${theme.color.black2};
 
   .breadcrumb{
     margin-left: 109px;
@@ -35,10 +35,10 @@ const BreadCrumbWrapper = styled.div`
     text-decoration: none;
     font-family: 'AppleSDGothicNeoM00';
     font-size: 24px;
-    margin-top: 20px;
+    margin-top: 40px;
     line-height: 34px;
     letter-spacing: 0.25px;
-    background-color: black;
+    background-color: ${theme.color.black2};
     list-style: none;
 
     .cur-problem{

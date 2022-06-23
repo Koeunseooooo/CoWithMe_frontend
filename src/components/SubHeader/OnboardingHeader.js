@@ -11,7 +11,7 @@ const HeaderBlock = styled.div`
   position: sticky;
   top: 0;
   background-color: ${theme.color.black2};
-  height:100px;
+  height:0px;
   width:100%;
   float:right;
   display: flex;

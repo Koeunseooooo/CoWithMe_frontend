@@ -43,7 +43,7 @@ const Wrapper = styled.div`
     border-radius: 30px;
     background-color: ${theme.color.black2};
     padding: 30px;
-    margin-top: 110px;
+    margin-top: 100px;
     .editor{
         margin-top: 34px;
         padding: 20px;

@@ -5,24 +5,40 @@ import { theme } from "../../styles/theme";
 
 const GuideSection = ({ problem }) => {
     return (
-        <Wrapper>
+        <Section>
             <div className="problem-name">
                 {problem.title}
             </div>
-            <div className="problem">
-                <div className="problem-description">
-                    문제 설명
+            <Wrapper>
+
+                <div className="problem">
+                    <div className="problem-description">
+                        문제 설명
+                    </div>
+                    {problem &&
+                        <Content>
+                            {problem.problem}
+                        </Content>}
                 </div>
-                {problem &&
-                    <Content>
-                        {problem.problem}
-                    </Content>}
-            </div>
-        </Wrapper>
+            </Wrapper>
+        </Section>
     )
 }
 export default GuideSection;
 
+const Section = styled.div`
+display:flex;
+flex-direction: column;
+.problem-name{
+    font-family: 'AppleSDGothicNeoM00';
+    font-weight: 400;
+    font-size: 32px;
+    margin-left: 20px;
+    line-height: 46px;
+    letter-spacing: 0.25px;
+    margin-bottom: 36px;
+  }
+`
 const Wrapper = styled.div`
 width: 75.8rem;
 height: 50vh;
@@ -36,15 +52,7 @@ background-color: ${theme.color.black2};
     padding: 30px;
     line-height: 28px;
 }
-.problem-name{
-    font-family: 'AppleSDGothicNeoM00';
-    font-weight: 400;
-    font-size: 32px;
-    margin-left: 20px;
-    line-height: 46px;
-    letter-spacing: 0.25px;
-    margin-bottom: 36px;
-  }
+
 
 .problem-description{
     color: ${theme.color.green};
