@@ -19,6 +19,7 @@ const Problems = ({ history }) => {
     //   .then(res => {
 
     //   })
+    // 처음엔 랜덤 
 
     setProblems([
       {
@@ -53,11 +54,49 @@ const Problems = ({ history }) => {
       }
     ])
   }, []);
-//   {problems?
-//     const problems1 = problems.slice(0,2)  
-//  const problems2 = problems.slice(3,5)  :""
-//   }
 
+function selectCategory() {
+    // axios.get('/recommends')
+    //   .then(res => {
+
+    //   })
+    // problems/category/:id
+    // 클릭한 id(카테고리유형)에 맞게 문제 제공
+    console.log("업데이트")
+
+    setProblems([
+      {
+        id: 1,
+        title: '업데이트',
+        category: 'DP'
+      },
+      {
+        id: 2,
+        title: '업데이트',
+        category: 'BFS'
+      },
+      {
+        id: 3,
+        title: '유기농 배추',
+        category: '문자열'
+      },
+      {
+        id: 4,
+        title: '체스판 다시 칠하기',
+        category: '구현'
+      },
+      {
+        id: 5,
+        title: '유기농 배추',
+        category: '문자열'
+      },
+      {
+        id: 6,
+        title: '체스판 다시 칠하기',
+        category: '구현'
+      }
+    ])
+  }
 
  
   return (
@@ -79,37 +118,37 @@ const Problems = ({ history }) => {
 
                   
                   <div className="check-block">
-                    <input type="radio" id="check1" name="category" />
+                    <input type="radio" id="check1" name="category" onClick={selectCategory} />
                     <label for="check1"></label>
                     <div className="content" >DFS/BFS</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="check2" name="category"/>
+                    <input type="radio" id="check2" name="category" onClick={selectCategory}/>
                     <label for="check2"></label>
                     <div className="content">그리디/탐색</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="check3" name="category" />
+                    <input type="radio" id="check3" name="category" onClick={selectCategory} />
                     <label for="check3"></label>
                     <div className="content" >DP</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="check4"  name="category" />
+                    <input type="radio" id="check4"  name="category" onClick={selectCategory}/>
                     <label for="check4"></label>
                     <div className="content" >문자열</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="check5"  name="category" />
+                    <input type="radio" id="check5"  name="category" onClick={selectCategory}/>
                     <label for="check5"></label>
                     <div className="content" >구현</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="check6"  name="category" />
+                    <input type="radio" id="check6"  name="category" onClick={selectCategory}/>
                     <label for="check6"></label>
                     <div className="content" >기타</div>
                   </div>
