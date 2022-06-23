@@ -9,14 +9,14 @@ import ApexChart from 'apexcharts'
 
   
 const Graph1Section = (datas) => {
-
+    console.log(datas)
     const chartformat = {
         series: [{
           name: '코테 합격자 평균 분포도',
-          data: datas.chart1Data.myscore,
+          data: datas.chart1Data.passer_score,
         }, {
           name: '나의 분포도',
-          data: datas.chart1Data.passer_score,
+          data: datas.chart1Data.myscore,
         }, ],
         dataLabels: {
             enabled: true

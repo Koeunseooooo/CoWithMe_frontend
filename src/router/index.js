@@ -5,6 +5,7 @@ import Home from "../pages/Home"
 import MyPage from "../pages/MyPage";
 import Solve from "../pages/Solve";
 import Chart from "../pages/Chart";
+import Problems from "../pages/Problems";
 
 import Header from "../components/Header"
 import Onborad from "../pages/Onboard";
