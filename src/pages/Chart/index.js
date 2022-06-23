@@ -22,7 +22,7 @@ const Chart = () => {
     //   .then(res => {})
     setChart1Data({
       myscore: [80, 50, 30, 40, 100, 20],
-      passer_score: [20, 30, 40, 80, 20, 80],
+      passer_score: [60, 60, 60, 80, 60, 80],
       coding_status : "",
       recommended_problems:["","","","",""]
     })

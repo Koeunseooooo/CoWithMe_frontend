@@ -25,7 +25,7 @@ const Graph1Section = (props) => {
             type: 'radar',
             dropShadow: {
               enabled: true,
-              blur: 1,
+              blur: 10,
               left: 1,
               top: 1
             }
@@ -34,19 +34,62 @@ const Graph1Section = (props) => {
             width: 2
           },
           fill: {
-            opacity: 0.5
+            type: "gradient",
+            gradient: {
+            shadeIntensity: 1,
+            opacityFrom: 0.5,
+            opacityTo: 0.5,
+            stops: [0, 90, 100]
+            }
           },
-          colors: ['#7EA1C4','#FF4560',],
+          colors: ['#FF7A00','#39E25E',],
           markers: {
-            size: 4,
+            size: 2,
             colors: ['#fff'],
-            strokeColor: ['#7EA1C4','#FF4560',],
+            strokeColor: ['#fff','#fff',],
             strokeWidth: 2,
           },
           xaxis: {
+            type: 'category',
             categories: ['그리디/탐색', 'DFS/BFS', 'DP', '문자열', '구현', '기타'],
-          },
         },
+
+            legend: {
+                show: true,
+                showForSingleSeries: false,
+                showForNullSeries: true,
+                showForZeroSeries: true,
+                position: 'bottom',
+                horizontalAlign: 'center', 
+                floating: false,
+                fontSize: '14px',
+                fontFamily: 'AppleSDGothicNeoB00',
+                fontWeight: 400,
+                formatter: undefined,
+                inverseOrder: false,
+                width: undefined,
+                height: undefined,
+                tooltipHoverFormatter: undefined,
+                customLegendItems: [],
+                offsetX: -20,
+                offsetY: 0,
+                labels: {
+                    colors: ['#fff'],
+                    useSeriesColors: false
+                },
+            
+                itemMargin: {
+                    horizontal: 10,
+                    vertical: 0
+                },
+                onItemClick: {
+                    toggleDataSeries: true
+                },
+                onItemHover: {
+                    highlightDataSeries: true
+                },
+            }
+    }
       };
 
     // console.log(chartformat.series)
@@ -102,7 +145,7 @@ const Wrapper = styled.div`
         font-style: normal;
         font-weight: 400;
         font-size: 15px;
-        line-height: 18px;
+        line-height: 20px;
         text-align: center;
         letter-spacing: 0.25px;
         color: #C5C5C5;
