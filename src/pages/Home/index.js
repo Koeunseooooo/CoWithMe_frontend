@@ -19,6 +19,7 @@ const Home = ({ history }) => {
 
 
   useEffect(() => {
+    
     // TODO: 연결
     // axios.get('/recommends')
     //   .then(res => {
@@ -99,10 +100,15 @@ const Home = ({ history }) => {
                   맞춤 추천 문제
                 </div>
                 <div className="section">
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
+                {problems&&problems.map((it) => (
+                  <ProblemBox 
+                    key={it.id}
+                    problem_title={it.title} 
+                    problem_source={it.category} 
+                    id={it.id}
+                    />
+                  ))}
+                  
                 </div>
               </div>
               <div className="each-wrapper">

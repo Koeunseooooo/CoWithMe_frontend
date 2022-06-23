@@ -11,7 +11,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import Button from '../../components/Button'
-
+import { useNavigate } from 'react-router-dom';
 
 
 const Wrapper= styled.div`
@@ -103,15 +103,32 @@ const Wrapper= styled.div`
 
  
 `
-function ProblemBox({problem_title,problem_source,illust_src,...rest}){
+
+function Illust({id}){
+    return(
+        <>{
+            id===1?<img className="img" src={require('../../assets/Illust/Coding Test/01.svg').default} alt="" />:
+            id===2?<img className="img" src={require('../../assets/Illust/Coding Test/02.svg').default} alt="" />:
+            id===3?<img className="img" src={require('../../assets/Illust/Coding Test/03.svg').default} alt="" />:
+            id===4?<img className="img" src={require('../../assets/Illust/Coding Test/04.svg').default} alt="" />:
+            id===5?<img className="img" src={require('../../assets/Illust/Coding Test/05.svg').default} alt="" />:
+            id===6?<img className="img" src={require('../../assets/Illust/Coding Test/06.svg').default} alt="" />:
+            <></>
+        }
+        </>
+    )
+}
+function ProblemBox({problem_title,problem_source,id,...rest}){
+    const navigate = useNavigate();
     return (
         <>
           <Wrapper>
               <div className="problem_title">{problem_title}</div>
               <div className="problem_source">{problem_source}</div>
-              <img className="img" src={require('../../assets/Illust/Coding Test/01.svg').default} alt="" />
+              <Illust id={id}/>
+              {/* <img className="img" src={require('../../assets/Illust/Coding Test/01.svg').default} alt=""/> */}
               <div className="buttonWrapper">
-                <button className="button">테스트하기</button>
+                <button className="button" onClick={() => navigate('/solve/'+id)}>테스트하기</button>
               </div>
           </Wrapper>
     
