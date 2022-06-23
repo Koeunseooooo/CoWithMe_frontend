@@ -111,10 +111,22 @@ const ChartFormat = (props) =>{
           fill: {
             type: 'gradient',
             gradient: {
-              shade: 'dark',
               type: 'horizontal',
               shadeIntensity: 1,
-              gradientToColors: props.gradient,
+            //   gradientToColors: props.gradient,
+            //   gradientFromColors: '#BAA700',
+            colorStops: [
+                {
+                  offset: 0,
+                  color: props.gradient[0],
+                  opacity: 1
+                },
+                {
+                  offset: 100,
+                  color: props.gradient[1],
+                  opacity: 1
+                }
+              ],
               inverseColors: true,
               opacityFrom: 0.8,
               opacityTo: 0.8,
