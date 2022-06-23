@@ -9,7 +9,6 @@ import ApexChart from 'apexcharts'
 
   
 const Graph1Section = (props) => {
-    console.log(props.chart1Data.myscore)
 
     const chartformat = {
         series: [{
@@ -19,6 +18,9 @@ const Graph1Section = (props) => {
           name: '나의 분포도',
           data: props.chart1Data.passer_score,
         }, ],
+        dataLabels: {
+            enabled: true
+          },
         options: {
           chart: {
             height: 100,
@@ -28,7 +30,8 @@ const Graph1Section = (props) => {
               blur: 10,
               left: 1,
               top: 1
-            }
+            },
+            
           },
           stroke: {
             width: 2
@@ -36,10 +39,11 @@ const Graph1Section = (props) => {
           fill: {
             type: "gradient",
             gradient: {
-            shadeIntensity: 1,
-            opacityFrom: 0.5,
-            opacityTo: 0.5,
-            stops: [0, 90, 100]
+                shade: 'dark',
+                shadeIntensity: 1,
+                opacityFrom: 0.5,
+                opacityTo: 0.5,
+                stops: [0, 90, 100]
             }
           },
           colors: ['#FF7A00','#39E25E',],
@@ -54,41 +58,41 @@ const Graph1Section = (props) => {
             categories: ['그리디/탐색', 'DFS/BFS', 'DP', '문자열', '구현', '기타'],
         },
 
-            legend: {
-                show: true,
-                showForSingleSeries: false,
-                showForNullSeries: true,
-                showForZeroSeries: true,
-                position: 'bottom',
-                horizontalAlign: 'center', 
-                floating: false,
-                fontSize: '14px',
-                fontFamily: 'AppleSDGothicNeoB00',
-                fontWeight: 400,
-                formatter: undefined,
-                inverseOrder: false,
-                width: undefined,
-                height: undefined,
-                tooltipHoverFormatter: undefined,
-                customLegendItems: [],
-                offsetX: -20,
-                offsetY: 0,
-                labels: {
-                    colors: ['#fff'],
-                    useSeriesColors: false
-                },
-            
-                itemMargin: {
-                    horizontal: 10,
-                    vertical: 0
-                },
-                onItemClick: {
-                    toggleDataSeries: true
-                },
-                onItemHover: {
-                    highlightDataSeries: true
-                },
-            }
+        legend: {
+            show: true,
+            showForSingleSeries: false,
+            showForNullSeries: true,
+            showForZeroSeries: true,
+            position: 'bottom',
+            horizontalAlign: 'center', 
+            floating: false,
+            fontSize: '14px',
+            fontFamily: 'AppleSDGothicNeoB00',
+            fontWeight: 400,
+            formatter: undefined,
+            inverseOrder: false,
+            width: undefined,
+            height: undefined,
+            tooltipHoverFormatter: undefined,
+            customLegendItems: [],
+            offsetX: -20,
+            offsetY: 0,
+            labels: {
+                colors: ['#fff'],
+                useSeriesColors: false
+            },
+        
+            itemMargin: {
+                horizontal: 10,
+                vertical: 0
+            },
+            onItemClick: {
+                toggleDataSeries: true
+            },
+            onItemHover: {
+                highlightDataSeries: true
+            },
+        }
     }
       };
 
@@ -122,15 +126,15 @@ export default Graph1Section;
 const Wrapper = styled.div`
     width: 50rem;
     min-height: 100%;
+    margin-left:15px;
     border-radius: 30px;
-    padding: 20px;
+    padding: 30px;
     background: radial-gradient(50% 50% at 50% 50%, #241D45 1%, #131022 100%);
     border-radius: 30px;
 
     .title{
-        padding: 20px;
+        padding: 10px;
     }
-  
 
     .title-description{
         color: ${theme.color.green};

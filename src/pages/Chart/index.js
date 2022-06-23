@@ -11,12 +11,14 @@ import GuideSection from "../../components/Editor/GuideSection";
 import BreadCrumb from "../../components/BreadCrumb";
 import RunSection from "../../components/Editor/RunSection";
 import Graph1Section from "../../components/Graph/Graph1Section";
+import Graph2Section from "../../components/Graph/Graph2Section";
 
 
 
 
 const Chart = () => {
   const [chart1Data, setChart1Data] = useState({});
+  const [chart2Data, setChart2Data] = useState({});
   useEffect(() => {
     // axios.get(`/chart`)
     //   .then(res => {})
@@ -25,6 +27,11 @@ const Chart = () => {
       passer_score: [60, 60, 60, 80, 60, 80],
       coding_status : "",
       recommended_problems:["","","","",""]
+    })
+
+    setChart2Data({
+      dp_score: [20,20,30,40,50,60],
+      dfs_score: [10, 30, 40, 80, 30, 20],
     })
     
   }, []);
@@ -40,13 +47,9 @@ const Chart = () => {
           <ContentWrapper>
             
               <Graph1Section chart1Data={chart1Data}/>
+              <Graph2Section chart2Data={chart2Data}/>
             
-            {/* <div className="inner-wrapper">
-              <Graph1Section/>
-              <Graph1Section/>
-            </div> */}
-            {/* <GuideSection />
-            <RunSection /> */}
+         
           </ContentWrapper>
         </div>
       </Wrapper>
