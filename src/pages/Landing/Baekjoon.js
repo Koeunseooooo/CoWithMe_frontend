@@ -15,41 +15,49 @@ const Baekjoon = () => {
     }
 
     const handleClick = (e) => {
-        axios.post('/users/baekjoon', { email: email }).then((res) => {
-            console.log(res.data);
-            navigate(`/onboard`); // 홈으로 이동
-        })
+        email && (
+            axios.post('/users/baekjoon', { email: email }).then((res) => {
+                console.log(res.data);
+                navigate(`/onboard`); // 홈으로 이동
+            })
+        )
     }
 
     return (
-        <LaunchContainer>
-            <div className="title">
-                백준 플랫폼 연결하기
-            </div>
-            <img className="baekjoon-logo" src={require('../../assets/Landing/Backjoon_Logo.svg').default} alt="" />
-            <div className="sub-title">
-                백준 플랫폼 로그인을 통해 코딩 데이터를 받아보세요!
-            </div>
+        <Wrapper>
+            <LaunchContainer>
+                <div className="title">
+                    백준 플랫폼 연결하기
+                </div>
+                <img className="baekjoon-logo" src={require('../../assets/Landing/Backjoon_Logo.svg').default} alt="" />
+                <div className="sub-title">
+                    백준 플랫폼 로그인을 통해 코딩 데이터를 받아보세요!
+                </div>
 
-            <input placeholder="이메일을 입력해주세요!" name="email" onChange={handleChange} />
-            <Button onClick={handleClick}>입력완료하기</Button>
-            <div className="pass" onClick={() => navigate(`/`)}>건너뛰기</div>
+                <input placeholder="이메일을 입력해주세요!" name="email" onChange={handleChange} />
+                <Button onClick={handleClick}>입력완료하기</Button>
+                <div className="pass" onClick={() => navigate(`/`)}>건너뛰기</div>
 
-        </LaunchContainer>
+            </LaunchContainer>
+        </Wrapper>
     )
 }
 
 export default Baekjoon;
+const Wrapper = styled.div`
+${flexCenter};
+width: 100%;
+height: 100%;
+margin-top: 300px;
 
+`;
 const LaunchContainer = styled.div`
 ${flexCenter}
     flex-direction: column;
     gap: 20px;
     padding: 30px;
     width: 681px;
-    position: fixed;
-    top: 30%;
-    left: 35%;
+    position: relative;
     height: 384px;
     background-color: ${theme.color.green};
     margin: 0 auto;
@@ -79,8 +87,6 @@ ${flexCenter}
             outline: none;
         }
     }
-
-
     .title{
         align-self: flex-start;
         font-family: 'AppleSDGothicNeoEB00';
@@ -110,6 +116,7 @@ ${flexCenter}
         line-height: 22px;
         letter-spacing: 0.5px;
         color: #353434;
+        cursor: pointer;
     }
     
 
@@ -122,13 +129,17 @@ const Button = styled.div`
 ${flexCenter};
 width: 601px;
 height: 61px;
-background: #F4F4F4;
+background-color: #F4F4F4;
 border-radius: 10px;
 font-weight: 400;
 font-size: 16px;
+cursor: pointer;
 line-height: 23px;
 font-family: 'AppleSDGothicNeoEB00';
 letter-spacing: 0.5px;
 color: #000000;
+&:hover{
+    background-color: #E2E2E2;
+}
 
 `;
