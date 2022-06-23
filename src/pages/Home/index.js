@@ -8,7 +8,8 @@ import Button from '../../components/Button'
 import ProblemBox from '../../components/ProblemBox'
 import SubHeader from '../../components/SubHeader'
 import { theme, flexCenter } from '../../styles/theme';
-import Graph1Section from "../../components/Graph/Graph1Section";
+import Graph1SectionForHome from "../../components/Graph/Graph1SectionForHome";
+import Graph3SectionForHome from "../../components/Graph/Graph3SectionForHome";
 
 const Home = ({ history }) => {
   const [, setCookie, removeCookie] = useCookies(["Authorization"]);
@@ -16,9 +17,11 @@ const Home = ({ history }) => {
   const [email, setEmail] = useState("");
   const [problems, setProblems] = useState(null);
   const [chart1Data, setChart1Data] = useState({});
+  const [chart3Data, setChart3Data] = useState({});
 
 
   useEffect(() => {
+    
     // TODO: 연결
     // axios.get('/recommends')
     //   .then(res => {
@@ -28,6 +31,10 @@ const Home = ({ history }) => {
     setChart1Data({
       myscore: [80, 50, 30, 40, 100, 20],
       passer_score: [60, 60, 60, 80, 60, 80],
+    })
+
+    setChart3Data({
+      focus_rate:[40,70,50],
     })
 
     setProblems([
@@ -89,7 +96,7 @@ const Home = ({ history }) => {
 
   return (
     <>
-      <SubHeader headText={"마이 코딩"} />
+      <SubHeader headText={"코윗미 메인 홈"} />
       <Header isMainHome />
         <Wrapper>
           <div className="main-wrapper">
@@ -99,17 +106,28 @@ const Home = ({ history }) => {
                   맞춤 추천 문제
                 </div>
                 <div className="section">
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
-                  <ProblemBox problem_title="신고결과받기" problem_source="2022 kakao blind test" illust_src='../../assets/Illust/Coding Test/01.svg'/>
+                {problems&&problems.map((it) => (
+                  <ProblemBox 
+                    key={it.id}
+                    problem_title={it.title} 
+                    problem_source={it.category} 
+                    id={it.id}
+                    />
+                  ))}
+                  
                 </div>
               </div>
               <div className="each-wrapper">
                 <div className="section-name">
                   내 코딩 영역 차트
                 </div>
-                {/* <Graph1Section chart1Data={chart1Data}/> */}
+                <Graph1SectionForHome chart1Data={chart1Data}/>
+                <div className="section-name">
+                  오늘의 학습 도달률
+                </div>
+                <Graph3SectionForHome chart3Data={chart3Data}/>
+                
+
               </div>
               <div className="each-wrapper">
                 <div className="section-name">
