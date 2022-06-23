@@ -1,101 +1,26 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie"
 import styled from "styled-components";
-import ProblemCard from "../../components/ProblemCard";
 import Header from '../../components/Header'
-import Button from '../../components/Button'
 import ProblemBox from '../../components/ProblemBox'
 import SubHeader from '../../components/SubHeader'
-import { theme, flexCenter } from '../../styles/theme';
-import Graph1Section from "../../components/Graph/Graph1Section";
+import { theme } from '../../styles/theme';
 
-const Problems = ({ history }) => {
-  const [, setCookie, removeCookie] = useCookies(["Authorization"]);
+const Problems = () => {
   const [problems, setProblems] = useState(null);
   useEffect(() => {
-    // TODO: 연결
-    // axios.get('/recommends')
-    //   .then(res => {
+    axios.get(`/problems`)
+      .then(res => {
+        setProblems(res.data);
+      })
 
-    //   })
-    // 처음엔 랜덤 
-
-    setProblems([
-      {
-        id: 1,
-        title: 'A+B',
-        category: 'DP'
-      },
-      {
-        id: 2,
-        title: '피보나치 함수',
-        category: 'BFS'
-      },
-      {
-        id: 3,
-        title: '유기농 배추',
-        category: '문자열'
-      },
-      {
-        id: 4,
-        title: '체스판 다시 칠하기',
-        category: '구현'
-      },
-      {
-        id: 5,
-        title: '유기농 배추',
-        category: '문자열'
-      },
-      {
-        id: 6,
-        title: '체스판 다시 칠하기',
-        category: '구현'
-      }
-    ])
   }, []);
 
-function selectCategory() {
-    // axios.get('/recommends')
-    //   .then(res => {
-
-    //   })
-    // problems/category/:id
-    // 클릭한 id(카테고리유형)에 맞게 문제 제공
-    console.log("업데이트")
-
-    setProblems([
-      {
-        id: 1,
-        title: '업데이트',
-        category: 'DP'
-      },
-      {
-        id: 2,
-        title: '업데이트',
-        category: 'BFS'
-      },
-      {
-        id: 3,
-        title: '유기농 배추',
-        category: '문자열'
-      },
-      {
-        id: 4,
-        title: '체스판 다시 칠하기',
-        category: '구현'
-      },
-      {
-        id: 5,
-        title: '유기농 배추',
-        category: '문자열'
-      },
-      {
-        id: 6,
-        title: '체스판 다시 칠하기',
-        category: '구현'
-      }
-    ])
+function selectCategory(category) {
+    axios.get(`/problems/${category}`)
+      .then(res => {
+        setProblems(res.data);
+      })
   }
  
   return (
@@ -117,37 +42,37 @@ function selectCategory() {
 
                   
                   <div className="check-block">
-                    <input type="radio" id="1" name="category" onClick={selectCategory} />
+                    <input type="radio" id="1" name="category" onClick={() =>selectCategory('search')} />
                     <label for="1"></label>
                     <div className="content" >DFS/BFS</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="2" name="category" onClick={selectCategory}/>
+                    <input type="radio" id="2" name="category" onClick={() => selectCategory('greedy')}/>
                     <label for="2"></label>
                     <div className="content">그리디/탐색</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="3" name="category" onClick={selectCategory} />
+                    <input type="radio" id="3" name="category" onClick={() => selectCategory('dp')} />
                     <label for="3"></label>
                     <div className="content" >DP</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="4"  name="category" onClick={selectCategory}/>
+                    <input type="radio" id="4"  name="category" onClick={() => selectCategory('string')}/>
                     <label for="4"></label>
                     <div className="content" >문자열</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="5"  name="category" onClick={selectCategory}/>
+                    <input type="radio" id="5"  name="category" onClick={() => selectCategory('implement')}/>
                     <label for="5"></label>
                     <div className="content" >구현</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="radio" id="6"  name="category" onClick={selectCategory}/>
+                    <input type="radio" id="6"  name="category" onClick={() => selectCategory('etc')}/>
                     <label for="check6"></label>
                     <div className="content" >기타</div>
                   </div>
