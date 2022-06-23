@@ -21,12 +21,21 @@ const Chart = () => {
   const [chart3Data, setChart3Data] = useState({});
 
   useEffect(() => {
-    // axios.get(`/chart`)
-    //   .then(res => {})
-    setChart1Data({
-      myscore: [80, 50, 30, 40, 100, 20],
-      passer_score: [60, 60, 60, 80, 60, 80],
-    })
+    axios.get(`/users/me`)
+      .then(res => {
+        const grade = res?.data?.Grades[res?.data?.Grades?.length - 1];
+        setChart1Data({
+          passer_score: [60, 60, 60, 80, 60, 80],    
+          myscore: [
+            grade?.greedy,
+            grade?.search,
+            grade?.dp,
+            grade?.string,
+            grade?.implement,
+            grade?.etc
+          ]
+        })
+      })
 
     setChart2Data({
       dp_score: [20,20,30,40,50,60],
@@ -35,17 +44,10 @@ const Chart = () => {
 
     setChart3Data({
       focus_rate:[40,70,50],
-      // 집중 3영역은 그냥 고정..?
-      // dfs_bfs: 40,
-      // dp: 70,
-      // 문자열: 50,
     })
     
   }, []);
 
-  
-  // console.log(chart1Data)
-  //   console.log(1)
   return (
     <>
     <SubHeader headText={"마이 코딩"} />
