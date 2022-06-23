@@ -190,14 +190,12 @@ const Wrapper3 = styled.div`
     padding-bottom:5px;
     background: radial-gradient(50% 50% at 50% 50%, #241D45 1%, #131022 100%);
     border-radius: 30px;
-
     .title{
         padding: 10px;
         display:flex;
         justify-content: space-between;
     }
   
-
     .title-description{
         color: ${theme.color.green};
         font-weight: 600;
@@ -205,7 +203,6 @@ const Wrapper3 = styled.div`
         line-height: 30px;
         letter-spacing: 0.25px;
     }
-
     .description{
         font-family: 'neoM';
         font-style: normal;
@@ -215,7 +212,6 @@ const Wrapper3 = styled.div`
         letter-spacing: 0.25px;
         color: #C5C5C5;
     }
-
     .graphs{
         margin-top:10px;
         display:grid;

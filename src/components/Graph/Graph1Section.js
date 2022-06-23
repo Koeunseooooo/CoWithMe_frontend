@@ -22,6 +22,19 @@ const Graph1Section = (datas) => {
             enabled: true
           },
         options: {
+            yaxis: {
+                show: false,
+                // showAlways: true,
+                showForNullSeries: false,
+                seriesName: undefined,
+                opposite: false,
+                reversed: false,
+                logarithmic: false,
+                logBase: 10,
+                tickAmount: 6,
+                min: 0,
+                max: 100,
+            },
           chart: {
             height: 100,
             type: 'radar',
@@ -34,6 +47,16 @@ const Graph1Section = (datas) => {
             toolbar: {
                 show: false
               }
+          },
+          plotOptions: {
+            radar: {
+              polygons: {
+                strokeColor:  '#C9C9C9',
+                fill: {
+                    colors: ['#16122C', '#241852']
+                }
+              }
+            }
           },
           stroke: {
             width: 2
