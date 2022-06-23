@@ -20,7 +20,7 @@ const CodeSection = ({ setSource }) => {
                 'editor.foreground': '#FFFFFF',
                 'editor.background': '#0C0A18',
                 'editor.lineHighlightBackground': '#0000FF20',
-                'editorLineNumber.foreground': '#008800',
+                'editorLineNumber.foreground': '#B02A0E',
                 'editor.selectionBackground': '#88000030',
             }
         });
@@ -72,6 +72,9 @@ const Wrapper = styled.div`
 `;
 const Solution = styled.div`
     color: ${theme.color.green};
+    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-left: 10px;
     font-family: 'AppleSDGothicNeoB00';
     font-style: normal;
     font-weight: 400;

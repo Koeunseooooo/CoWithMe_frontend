@@ -23,7 +23,7 @@ const OnboardCodeSection = () => {
                 'editor.foreground': '#FFFFFF',
                 'editor.background': '#0C0A18',
                 'editor.lineHighlightBackground': '#0000FF20',
-                'editorLineNumber.foreground': '#008800',
+                'editorLineNumber.foreground': '#B02A0E',
                 'editor.selectionBackground': '#88000030',
             }
         });
@@ -69,7 +69,7 @@ const Wrapper = styled.div`
     background-color: ${theme.color.black2};
     padding: 0px;
     padding: 50px;
-    margin-top: 110px;
+    margin-top: 80px;
 
 
 `;
@@ -79,6 +79,7 @@ const Solution = styled.div`
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
+    margin-bottom: 30px;
     line-height: 33px;
     letter-spacing: 0.25px;
 `;
