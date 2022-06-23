@@ -9,20 +9,46 @@ const Loginpage = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [emailError, setEmailError] = useState();
+    const [pwError, setpwError] = useState();
 
-    const handleEmailChange = (e) => setEmail(e.target.value);
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
     const handlePWChange = (e) => setPassword(e.target.value);
 
-    // TODO: valid 체크
-    const handleSubmit = () => {
-        //axios.post('/user/login', { email: email, password: password }).then((res) => {
-        //     console.log(res);
-        //     if (res.access_token) { // 토큰 받으면
-        //         localStorage.setItem('login-token'); // 로컬 스토리지에 저장
-        //          window.location.href = '/'; // 홈으로 이동
-        //      }
-        //  })
-        navigate(`/`);
+    const passwordValidCheck = (password) => {
+        const specialLetter = password.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+        const result = password.length >= 8 && specialLetter >= 1;
+        result ? setpwError() : setpwError("올바른 비밀번호를 입력해주세요.");
+        return result;
+    }
+
+    const emailValidCheck = (email) => {
+        const emailRegex =
+            /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+
+        let result = emailRegex.test(email);
+        result ? setEmailError() : setEmailError("올바른 이메일을 입력해주세요.");
+        return result;
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        let emailResult = emailValidCheck(email)
+        let passwordResult = passwordValidCheck(password);
+        if (emailResult && passwordResult) {
+
+            //axios.post('/user/login', { email: email, password: password }).then((res) => {
+            //     console.log(res);
+            //     if (res.access_token) { // 토큰 받으면
+            //         localStorage.setItem('login-token'); // 로컬 스토리지에 저장
+            //          window.location.href = '/'; // 홈으로 이동
+            //      }
+            //  })
+        }
+        // navigate(`/`);
+
     }
     return (
         <LaunchContainer>
@@ -33,7 +59,9 @@ const Loginpage = () => {
                 <div className="content-area-2">
 
                     <Input placeholder="이메일을 입력해주세요!" name="email" onChange={handleEmailChange} />
+                    <ErrorMessage>{emailError}</ErrorMessage>
                     <Input type="password" placeholder="비밀번호를 입력해주세요!" name="password" onChange={handlePWChange} />
+                    <ErrorMessage>{pwError}</ErrorMessage>
                     <LoginButton>코윗미 계정으로 로그인하기</LoginButton>
 
                     <Wrapper>
@@ -48,6 +76,14 @@ const Loginpage = () => {
 }
 
 export default Loginpage;
+
+const ErrorMessage = styled.div`
+    color: red;
+    width: 601px;
+    height: 10px;
+    font-family: 'AppleSDGothicNeoB00';
+    font-size: 13px;
+`;
 
 const Wrapper = styled.div`
 display: flex;
@@ -71,6 +107,7 @@ justify-content: space-between;
 const LoginButton = styled.button`
 width: 601px;
 height: 61px;
+margin-top: 20px;
 ${flexCenter}
 background: #F4F4F4;
 border-radius: 10px;
@@ -107,7 +144,6 @@ const LaunchContainer = styled.div`
 
     .content-area-2{
       ${flexCenter}
-      margin-top: 20px;
       flex-direction: column;
       gap: 8px;
       .other-method{
@@ -129,11 +165,11 @@ const LaunchContainer = styled.div`
 
 const Input = styled.input`
 width: 601px;
-margin-bottom: 40px;
+margin-bottom: 10px;
 border:none; 
 background-color:  ${theme.color.green};
 border-bottom: 1px solid #000;
-padding: 10px 0px;
+padding: 20px 0px;
 font-weight: 400;
 font-family: 'AppleSDGothicNeoB00';
 font-size: 18px;
