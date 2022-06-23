@@ -122,13 +122,12 @@ function ProblemBox({problem_title,problem_source,id,...rest}){
     const navigate = useNavigate();
     return (
         <>
-          <Wrapper>
+          <Wrapper onClick={() => navigate('/solve/'+id)}>
               <div className="problem_title">{problem_title}</div>
               <div className="problem_source">{problem_source}</div>
               <Illust id={id}/>
-              {/* <img className="img" src={require('../../assets/Illust/Coding Test/01.svg').default} alt=""/> */}
               <div className="buttonWrapper">
-                <button className="button" onClick={() => navigate('/solve/'+id)}>테스트하기</button>
+                <button className="button">테스트하기</button>
               </div>
           </Wrapper>
     

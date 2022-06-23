@@ -38,8 +38,8 @@ const Chart = () => {
       })
 
     setChart2Data({
-      dp_score: [20,20,30,40,50,60],
-      dfs_score: [10, 30, 40, 80, 30, 20],
+      dp_score: [20, 20, 30, 40, 55, 60],
+      dfs_score: [15, 30, 35, 45, 50, 65],
     })
 
     setChart3Data({
