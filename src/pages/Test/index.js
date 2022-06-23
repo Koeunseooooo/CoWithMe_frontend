@@ -7,9 +7,10 @@ const Test = () => {
   const [email, setEmail] = useState("");
 
   const join = async () => {
-    // const resp = await axios.post('/auth/join', {})
+    const token = new Date().getTime();
+    const resp = await axios.post('/auth/join', { token });
 
-    setCookie("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJoQGguY29tIiwiaWF0IjoxNjU1ODg0NTg1LCJleHAiOjE2NTU5NzA5ODV9.vgHvGEy400xVeMemCdLg9PESL75KJY6_fyMzfOsy46A", {
+    setCookie("Authorization", resp.data.token, {
       path: "/",
       maxAge: 24 * 60 * 60,
     })
