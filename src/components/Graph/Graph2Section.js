@@ -1,16 +1,8 @@
-import { useState, useEffect } from "react";
 import styled from "styled-components";
-import Editor, { useMonaco } from "@monaco-editor/react";
 import { theme } from "../../styles/theme";
 import ReactApexChart from "react-apexcharts"; 
-import ApexChart from 'apexcharts'
-
-
-
   
 const Graph2Section = (props) => {
-    // console.log(props.chart2Data.dp_score)
-
     const chartformat = {
         series: [{
           name: 'DP 영역',
@@ -168,7 +160,7 @@ const Graph2Section = (props) => {
                 <div className="description">
                     
                 최근 5개월간의 코딩 능력을 점검합니다.<br/>
-                DF 영역과 DFS 영역의 상승이 두드러집니다. 주의하세요!
+                DF 영역과 DFS 영역의 실력이 빠르게 늘고 있네요!
             </div>
             </div>
                 
