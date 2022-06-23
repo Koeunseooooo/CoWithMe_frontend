@@ -66,6 +66,48 @@ const ChartFormat = (props) =>{
               }
             }
           },
+          tooltip: {
+            enabled: true,
+            enabledOnSeries: undefined,
+            shared: true,
+            followCursor: false,
+            intersect: false,
+            inverseOrder: false,
+            custom: undefined,
+            fillSeriesColor: false,
+            theme: false,
+            style: {
+              fontSize: '12px',
+              fontFamily: undefined
+            },
+            onDatasetHover: {
+                highlightDataSeries: false,
+            },
+            x: {
+                show: true,
+                format: 'dd MMM',
+                formatter: undefined,
+            },
+            y: {
+                formatter: undefined,
+                title: {
+                    formatter: (seriesName) => seriesName,
+                },
+            },
+            z: {
+                formatter: undefined,
+                title: 'Size: '
+            },
+            marker: {
+                show: true,
+            },
+            fixed: {
+                enabled: false,
+                position: 'topRight',
+                offsetX: 0,
+                offsetY: 0,
+            },
+        },
           fill: {
             type: 'gradient',
             gradient: {
@@ -132,7 +174,7 @@ export default Graph3Section;
 
 const Wrapper3 = styled.div`
     width: 50rem;
-    height: 30%;
+    height: 35%;
     border-radius: 30px;
     margin-top:40px;
     padding-top:20px;

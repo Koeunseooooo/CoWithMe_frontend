@@ -34,11 +34,52 @@ const Graph1Section = (props) => {
             toolbar: {
                 show: false
               }
-            
           },
           stroke: {
             width: 2
           },
+          tooltip: {
+            enabled: true,
+            enabledOnSeries: undefined,
+            shared: true,
+            followCursor: false,
+            intersect: false,
+            inverseOrder: false,
+            custom: undefined,
+            fillSeriesColor: false,
+            theme: false,
+            style: {
+              fontSize: '12px',
+              fontFamily: undefined
+            },
+            onDatasetHover: {
+                highlightDataSeries: false,
+            },
+            x: {
+                show: true,
+                format: 'dd MMM',
+                formatter: undefined,
+            },
+            y: {
+                formatter: undefined,
+                title: {
+                    formatter: (seriesName) => seriesName,
+                },
+            },
+            z: {
+                formatter: undefined,
+                title: 'Size: '
+            },
+            marker: {
+                show: true,
+            },
+            fixed: {
+                enabled: false,
+                position: 'topRight',
+                offsetX: 0,
+                offsetY: 0,
+            },
+        },
           fill: {
             type: "gradient",
             gradient: {
@@ -49,7 +90,7 @@ const Graph1Section = (props) => {
                 stops: [0, 90, 100]
             }
           },
-          colors: ['#FF7A00','#39E25E',],
+          colors: ['#FF7A00','#39E25E'],
           markers: {
             size: 2,
             colors: ['#fff'],
@@ -157,4 +198,6 @@ const Wrapper = styled.div`
         letter-spacing: 0.25px;
         color: #C5C5C5;
     }
+
+      
     `
