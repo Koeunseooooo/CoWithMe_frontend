@@ -57,7 +57,6 @@ const Problems = ({ history }) => {
 //     const problems1 = problems.slice(0,2)  
 //  const problems2 = problems.slice(3,5)  :""
 //   }
- 
 
 
  
@@ -80,39 +79,39 @@ const Problems = ({ history }) => {
 
                   
                   <div className="check-block">
-                    <input type="checkbox" id="check1"/>
+                    <input type="radio" id="check1" name="category" />
                     <label for="check1"></label>
-                    <div className="content">DFS/BFS</div>
+                    <div className="content" >DFS/BFS</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="checkbox" id="check2"/>
+                    <input type="radio" id="check2" name="category"/>
                     <label for="check2"></label>
                     <div className="content">그리디/탐색</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="checkbox" id="check3"/>
+                    <input type="radio" id="check3" name="category" />
                     <label for="check3"></label>
-                    <div className="content">DP</div>
+                    <div className="content" >DP</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="checkbox" id="check4"/>
+                    <input type="radio" id="check4"  name="category" />
                     <label for="check4"></label>
-                    <div className="content">문자열</div>
+                    <div className="content" >문자열</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="checkbox" id="check5"/>
+                    <input type="radio" id="check5"  name="category" />
                     <label for="check5"></label>
-                    <div className="content">구현</div>
+                    <div className="content" >구현</div>
                   </div>
 
                   <div className="check-block">
-                    <input type="checkbox" id="check6"/>
+                    <input type="radio" id="check6"  name="category" />
                     <label for="check6"></label>
-                    <div className="content">기타</div>
+                    <div className="content" >기타</div>
                   </div>
 
 
@@ -257,10 +256,10 @@ const ContentWrapper = styled.div`
   margin-bottom:25px;
 }
 
-input[type="checkbox"]{
+input[type="radio"]{
   display: none;
 }
-input[type="checkbox"] + label{
+input[type="radio"] + label{
   display: inline-block;
   width: 15px;
   height: 15px;
