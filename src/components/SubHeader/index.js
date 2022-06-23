@@ -12,22 +12,20 @@ const HeaderBlock = styled.div`
   top: 0;
   background-color: ${theme.color.black2};
   height:100px;
-  width:85vw;
+  width:100vw;
   float:right;
   display: flex;
   justify-content: space-between;
   align-items:center;
-  z-index: 50;
   
 
   .head_text{
-    // margin-left:20px;
+    margin-left:200px;
     font-family: 'neoB';
     font-style: normal;
     font-weight: 700;
     font-size: 23px;
     line-height: 46px;
-    /* identical to box height */
 
     letter-spacing: 0.25px;
 

@@ -8,6 +8,7 @@ import { useCookies } from 'react-cookie';
 
 
 const HeaderBlock = styled.div`
+  
   position: fixed;
   left: 0;
   top: 0;
@@ -18,6 +19,7 @@ const HeaderBlock = styled.div`
   margin:0px;
 
   .container{
+    z-index: 1;
     display:flex;
     flex-direction:column;
     align-items: center;
