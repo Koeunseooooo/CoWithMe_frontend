@@ -21,8 +21,10 @@ const Signuppage = () => {
 
     const passwordValidCheck = (password) => {
         const specialLetter = password.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+        console.log(specialLetter >= 1, password.length >= 8);
         const result = password.length >= 8 && specialLetter >= 1;
         result ? setpwError() : setpwError("올바른 비밀번호를 입력해주세요.");
+        console.log(result);
         return result;
     }
 
@@ -35,20 +37,14 @@ const Signuppage = () => {
         return result;
     }
 
-    const nickNameValidCheck = (nickname) => {
-        const result = nickname.length > 2;
-        result ? setNicknameError() : setNicknameError("두 글자 이상 입력해주세요");
-    }
-
-
     // TODO: valid 체크
     const handleSubmit = (e) => {
         e.preventDefault();
         e.preventDefault();
         let emailResult = emailValidCheck(email);
         let passwordResult = passwordValidCheck(password);
-        let nicknameResult = nickNameValidCheck(nickname);
-        if (emailResult && passwordResult && nicknameResult) {
+        console.log(emailResult, passwordResult);
+        if (emailResult && passwordResult) {
 
             axios.post('/auth/join', { email: email, password: password, nickname: nickname }).then((res) => {
                 if (res.data.token) { // 토큰 받으면
@@ -73,14 +69,10 @@ const Signuppage = () => {
                     <Input placeholder="이메일을 입력해주세요!" name="email" onChange={handleEmailChange} />
 
                     <ErrorMessage>{emailError}</ErrorMessage>
-                    <Input placeholder="사용할 닉네임을 입력해주세요!" name="nickname" onChange={handlePWChange} />
-                    <ErrorMessage>{nicknameError}</ErrorMessage>
-                    <Input placeholder="비밀번호를 입력해주세요!" name="password" type="password" onChange={handleNicknameChange} />
-                    <ErrorMessage>{pwError}</ErrorMessage>
-
                     <Input placeholder="사용할 닉네임을 입력해주세요!" name="nickname" onChange={handleNicknameChange} />
+                    <ErrorMessage>{nicknameError}</ErrorMessage>
                     <Input placeholder="비밀번호를 입력해주세요!" name="password" type="password" onChange={handlePWChange} />
-
+                    <ErrorMessage>{pwError}</ErrorMessage>
                     <LoginButton>회원가입 완료</LoginButton>
                 </div>
             </form>
@@ -150,7 +142,7 @@ font-style: normal;
 font-weight: 400;
 font-size: 20px;
 line-height: 29px;
-/* identical to box height */
+cursor: pointer;
 
 letter-spacing: 0.5px;
 color: black;

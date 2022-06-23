@@ -36,25 +36,13 @@ const Loginpage = () => {
         return result;
     }
 
+
+    // TODO: valid 체크
     const handleSubmit = (e) => {
         e.preventDefault();
         let emailResult = emailValidCheck(email)
         let passwordResult = passwordValidCheck(password);
         if (emailResult && passwordResult) {
-
-            //axios.post('/user/login', { email: email, password: password }).then((res) => {
-            //     console.log(res);
-            //     if (res.access_token) { // 토큰 받으면
-            //         localStorage.setItem('login-token'); // 로컬 스토리지에 저장
-            //          window.location.href = '/'; // 홈으로 이동
-            //      }
-            //  })
-        }
-        // navigate(`/`);
-
-        // TODO: valid 체크
-        const handleSubmit = (e) => {
-            e.preventDefault();
 
             axios.post('/auth/login', { email: email, password: password }).then((res) => {
                 if (res.data.token) { // 토큰 받으면
@@ -66,33 +54,35 @@ const Loginpage = () => {
                     window.location.href = '/'; // 홈으로 이동
 
                 }
+
             })
         }
-        return (
-            <LaunchContainer>
-                <div className="content-area-1">
-                    <Login />
-                </div>
-                <form onSubmit={handleSubmit}>
-                    <div className="content-area-2">
-
-                        <Input placeholder="이메일을 입력해주세요!" name="email" onChange={handleEmailChange} />
-                        <ErrorMessage>{emailError}</ErrorMessage>
-                        <Input type="password" placeholder="비밀번호를 입력해주세요!" name="password" onChange={handlePWChange} />
-                        <ErrorMessage>{pwError}</ErrorMessage>
-                        <LoginButton>코윗미 계정으로 로그인하기</LoginButton>
-
-                        <Wrapper>
-                            <div className="auth" onClick={() => navigate(`/landing/signup`)}>회원가입하기</div>
-                            <div className="auth">비밀번호 찾기</div>
-                        </Wrapper>
-
-                    </div>
-                </form>
-            </LaunchContainer >
-        )
     }
+    return (
+        <LaunchContainer>
+            <div className="content-area-1">
+                <Login />
+            </div>
+            <form onSubmit={handleSubmit}>
+                <div className="content-area-2">
+
+                    <Input placeholder="이메일을 입력해주세요!" name="email" onChange={handleEmailChange} />
+                    <ErrorMessage>{emailError}</ErrorMessage>
+                    <Input type="password" placeholder="비밀번호를 입력해주세요!" name="password" onChange={handlePWChange} />
+                    <ErrorMessage>{pwError}</ErrorMessage>
+                    <LoginButton>코윗미 계정으로 로그인하기</LoginButton>
+
+                    <Wrapper>
+                        <div className="auth" onClick={() => navigate(`/landing/signup`)}>회원가입하기</div>
+                        <div className="auth">비밀번호 찾기</div>
+                    </Wrapper>
+
+                </div>
+            </form>
+        </LaunchContainer >
+    )
 }
+
 
 export default Loginpage;
 
