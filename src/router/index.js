@@ -5,6 +5,7 @@ import Home from "../pages/Home"
 import MyPage from "../pages/MyPage";
 import Solve from "../pages/Solve";
 import Chart from "../pages/Chart";
+import Problems from "../pages/Problems";
 
 import Header from "../components/Header"
 import Onborad from "../pages/Onboard";
@@ -20,6 +21,7 @@ const Router = () => {
         <Route exact path="/solve/:id" element={<Solve />} />
         <Route exact path="/chart" element={<Chart />} />
         <Route exact path="/onboard" element={<Onborad />} />
+        <Route exact path="/problems" element={<Problems />} />
         
         {/* 테스트 후 제거 필요 */}
         <Route exact path="/test" element={<Test />} /> 
