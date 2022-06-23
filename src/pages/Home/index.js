@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie"
-
+import styled from "styled-components";
 import ProblemCard from "../../components/ProblemCard";
 import Header from '../../components/Header'
 import SubHeader from '../../components/SubHeader'
+import { theme, flexCenter } from '../../styles/theme';
 
 const Home = ({ history }) => {
   const [, setCookie, removeCookie] = useCookies(["Authorization"]);
@@ -78,11 +79,59 @@ const Home = ({ history }) => {
 
   return (
     <>
+      <SubHeader headText={"마이 코딩"} />
+      <Header isMainHome />
+        <Wrapper>
+          <div className="main-wrapper">
+            <ContentWrapper>
+              <div className="each-wrapper"></div>
+              <div className="each-wrapper"></div>
+              <div className="each-wrapper"></div>
+            </ContentWrapper>
+          </div>
+        </Wrapper>
+      </>
 
-      <SubHeader headText={"코윗미 메인 홈"}/>
-      <Header isMainHome/>
+    
+  )
+}
 
-      {/* <div>
+export default Home;
+
+const RightWrapper = styled.div`
+  display: flex;
+  flex-direction:column;
+`
+const Wrapper = styled.div`
+margin-left: 143px;
+padding: 20px;
+
+`;
+const ContentWrapper = styled.div`
+  display: grid;
+  margin-top:120px;
+  padding: 30px;
+  width: 100%;
+  min-height: 100vh;
+  gap: 44px;
+  box-sizing: border-box;
+  background-color: ${theme.color.black3};
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.16);
+  border-radius: 40px 40px 0px 0px;
+  grid-template-columns: 400px 400px 300px;
+
+  .main-wrapper{
+    display: flex;
+    margin-top:30px;
+    flex-direction : column;
+  }
+
+  .each-wrapper{
+    background-color:red;
+  }
+`;
+
+  {/* <div>
         <h3>{email}</h3>
         <button onClick={join}>Join</button>
         <button onClick={login}>Login</button>
@@ -92,8 +141,3 @@ const Home = ({ history }) => {
       <div>
         {problems?.map(problem => <ProblemCard key={problem.id} problem={problem} />)}
       </div> */}
-    </>
-  )
-}
-
-export default Home;
