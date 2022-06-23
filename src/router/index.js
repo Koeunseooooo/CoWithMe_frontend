@@ -6,8 +6,9 @@ import MyPage from "../pages/MyPage";
 import Solve from "../pages/Solve";
 import Chart from "../pages/Chart";
 import Landing from "../pages/Landing";
+import Baekjoon from "../pages/Landing/Baekjoon";
+import LoginOrSignup from "../pages/Landing/LoginOrSignup";
 
-import Header from "../components/Header"
 
 const Router = () => {
   return (
@@ -18,8 +19,11 @@ const Router = () => {
         <Route exact path="/me" element={<MyPage />} />
         <Route exact path="/solve/:id" element={<Solve />} />
         <Route exact path="/chart" element={<Chart />} />
-        <Route exact path="/landing" element={<Landing />} />
-
+        <Route path="/landing" element={<Landing />} >
+          <Route path="baekjoon" element={<Baekjoon />} />
+          <Route path="login" element={<LoginOrSignup />} />
+          <Route path="signup" element={<LoginOrSignup />} />
+        </Route>
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </Suspense>
