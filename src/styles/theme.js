@@ -8,7 +8,9 @@ export const theme = {
     black4: "##0C0A18",
     green: "#39E25E",
     white: "#FFFFFF",
-    grey: "#4C445F"
+    white1: "#F4F4F4",
+    grey: "#4C445F",
+    grey2: "#ADADAC"
   },
 };
 

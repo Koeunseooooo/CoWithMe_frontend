@@ -3,22 +3,18 @@ import styled from "styled-components";
 import CodeEditor from "./CodeSection";
 import CodeSection from "./CodeSection";
 import OutputSection from "./OutputSection";
-
 import axios from "axios";
 
 
-const RunSection = () => {
-
+const RunSection = ({ dummy }) => {
     const [result, setResult] = useState("");
     const [source, setSource] = useState();
-    // const monaco = useMonaco();
 
     const handleEditorChange = (value) => setSource(value);
 
     // TODO: 소스코드 전송
     // axios.post(``)
     //   .then(res => {})
-
 
     const submit = () => {
         // axios.post(`/`);

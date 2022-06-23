@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { theme, flexCenter } from '../../styles/theme';
 
-const OutputSection = () => {
+const OutputSection = ({ source }) => { // source: 제출할 소스코드
     const [result, setResult] = useState("");
-    const [source, setSource] = useState();
-    // const monaco = useMonaco();
 
-    const handleEditorChange = (value) => setSource(value);
-
-    // TODO: 소스코드 전송
-    // axios.post(``)
-    //   .then(res => {})
-
+    const location = useLocation();
+    const problemId = location.pathname.split('/')[2];
 
     const submit = () => {
-        // axios.post(`/`);
+        // TODO: 소스코드 전송
+        // axios.post(`/problems/mark/${problemId}`, source)
+        //   .then(res => setResult(res.data));
         setResult("정답입니다!")
     }
 
@@ -39,16 +36,16 @@ export default OutputSection;
 
 const OutputWrapper = styled.div`
 padding: 30px;
-margin-top: 40px;
 display: flex;
 flex-direction: column;
-background-color: ${theme.color.black4};
+background-color: ${theme.color.black2};
 .console{
     padding: 30px;
-    margin-top: 36px;
+    margin-top: 30px;
     height: 68px;
     font-size: 18px;
-    
+    font-family: 'AppleSDGothicNeoB00';  
+    background-color: ${theme.color.black2};
 }
 .button-wrapper{
     ${flexCenter}
@@ -70,6 +67,7 @@ background-color: ${theme.color.black4};
 const Button = styled.button`
 width: 165px;
 height: 48px;
+cursor: pointer;
 border-radius: 100px;
 color: ${(props) => props.color === 'grey' ? theme.color.white : theme.color.black};
 background-color: ${(props) => props.color === 'grey' ? theme.color.grey : theme.color.green};
@@ -78,5 +76,8 @@ font-weight: 400;
 font-size: 16px;
 line-height: 22px;
 letter-spacing: 0.25px;
+&:hover{
+    background-color:${theme.color.grey2};
+}
 
 `

@@ -17,6 +17,7 @@ const HeaderBlock = styled.div`
   background: #39E25E;
   padding-top:230px;
   margin:0px;
+  z-index: 100;
 
   .container{
     z-index: 1;
