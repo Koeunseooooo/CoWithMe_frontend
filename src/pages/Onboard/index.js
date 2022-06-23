@@ -17,21 +17,18 @@ const Onborad = () => {
   const [problem, setProblem] = useState(null);
   const [answer, setAnswer] = useState(); // 사용자가 선택한 정답
 
-  // 1씩 증가시키면서 문제 가져오는 api
   const loadProblem = async (number) => {
     const resp = await axios.get(`/tests/${number}`);
     setProblem(resp.data);
   }
 
-  // 처음엔 1로 시작
   useEffect(() => {
     loadProblem(1);
   }, []);
 
-  // 제출 api
-  const markProblem = async () => {
+  const markProblem = async (result) => {
     const resp = await axios.post(`/tests/mark/${problem.id}`, {
-      answer: '1' // 사용자가 마킹한 답
+      answer: result
     });
 
     console.log(resp);
@@ -50,7 +47,7 @@ const Onborad = () => {
               <OnboardGuideSection problem={problem} />
               <RunSection>
                 <OnboardCodeSection />
-                <SelectSection problem={problem} markProblem={markProblem} />
+                <SelectSection problem={problem} markProblem={markProblem} problemNumber={problemNumber} />
               </RunSection>
             </>
             }

@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { theme, flexCenter } from '../../styles/theme';
 import BasicButton from "./BasicButton";
+import { useNavigate } from 'react-router-dom';
 
-const SelectSection = ({ problem, markProblem }) => {
+const SelectSection = ({ problem, markProblem, problemNumber }) => {
     const [result, setResult] = useState(""); // 서버로 제출할 정답
     const [source, setSource] = useState();
+    const navigate = useNavigate();
+
     // const monaco = useMonaco();
 
     // TODO: 소스코드 전송
@@ -24,6 +27,13 @@ const SelectSection = ({ problem, markProblem }) => {
 
     const submit = () => {
         markProblem(result);
+        const newArr = Array(categoryList.length).fill(false);
+        setIsCategorySelect(newArr);
+    }
+
+    const submitAndgoHome = () => {
+        markProblem(result);
+        navigate('/'); // 홈으로 이동
     }
 
     return (
@@ -44,7 +54,8 @@ const SelectSection = ({ problem, markProblem }) => {
                     );
                 })}
             </div>
-            <Button color="grey" onClick={submit}>다음 문제 풀기</Button>
+            {problemNumber <= 4 ? <Button color="grey" onClick={submit}>다음 문제 풀기</Button> : <Button color="green" onClick={submitAndgoHome} >문제 제출 완료</Button>}
+
         </OutputWrapper>
     );
 };
