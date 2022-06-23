@@ -1,7 +1,7 @@
 import jwtDecode from 'jwt-decode';
 import styled from 'styled-components';
 // import GoogleLogin from 'react-google-login';
-import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { GoogleOAuthProvider, GoogleLogin, hasGrantedAllScopesGoogle } from '@react-oauth/google';
 
 import axios from 'axios';
 
@@ -13,42 +13,34 @@ const GoogleAuth = () => {
     }
     const onGoogleSignInSuccess = (res) => {
         console.log(res);
-        localStorage.setItem('userName', res.profileObj.givenName);
+        const { credential } = res;
         console.log(localStorage);
 
-        const params = new URLSearchParams();
-        params.append('idToken', res.tokenObj.id_token);
-
         const googleLogin = async () => {
-            const { data } = await axios.post('/login/google', params, { // TODO: 로그인 api 연결해야 합니다
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                }
-            });
-
-            localStorage.setItem('accessToken', data.token.access);
-            localStorage.setItem('refreshToken', data.token.refresh);
-            localStorage.setItem('tooltip', data.tooltip);
-            localStorage.setItem(
-                'accessExpiredAt',
-                jwtDecode(data.token.access).exp * 1000
-            );
-            localStorage.setItem(
-                'refreshExpiredAt',
-                jwtDecode(data.token.refresh).exp * 1000
-            );
-
+            const resp = await axios.post('/auth/login', { token: credential });
+            console.log(resp.data);
             window.location.href = '/home';
+        }
+
+        // // TODO: 상황에 맞춰 호출
+        const googleSignup = async () => {
+            const resp = await axios.post('/auth/join', { token: credential });
+            console.log(resp.data);
+            window.location.href = '/home';
+
+            // localStorage.setItem('accessToken', data.token.access);
+            // localStorage.setItem('refreshToken', data.token.refresh);
+            // localStorage.setItem('tooltip', data.tooltip);
         };
 
-        // googleLogin();
+        // googleLogin(credential);
+        googleSignup(credential);
     };
 
     return (
         <>
-            <GoogleOAuthProvider clientId=''>
+            <GoogleOAuthProvider clientId='593606914816-bmmq2brv4k6mokcb85jl7lv33agijhb1'>
                 <GoogleLogin
-                    // clientId={process.env.REACT_APP_GOOGLE_API_KEY}
                     onSuccess={onGoogleSignInSuccess}
                     onError={onGoogleSignInFailure}
                 />

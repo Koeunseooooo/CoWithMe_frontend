@@ -9,6 +9,9 @@ import Landing from "../pages/Landing";
 import Baekjoon from "../pages/Landing/Baekjoon";
 import LoginOrSignup from "../pages/Landing/LoginOrSignup";
 
+import Header from "../components/Header"
+import Onborad from "../pages/Onboard";
+import Test from "../pages/Test";
 
 const Router = () => {
   return (
@@ -19,11 +22,17 @@ const Router = () => {
         <Route exact path="/me" element={<MyPage />} />
         <Route exact path="/solve/:id" element={<Solve />} />
         <Route exact path="/chart" element={<Chart />} />
+
         <Route path="/landing" element={<Landing />} >
           <Route path="baekjoon" element={<Baekjoon />} />
           <Route path="login" element={<LoginOrSignup />} />
           <Route path="signup" element={<LoginOrSignup />} />
         </Route>
+        <Route path="*" element={<Navigate replace to="/" />} />
+        <Route exact path="/onboard" element={<Onborad />} />
+
+        {/* 테스트 후 제거 필요 */}
+        <Route exact path="/test" element={<Test />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </Suspense>
