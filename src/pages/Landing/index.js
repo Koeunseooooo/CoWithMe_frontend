@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { theme, flexCenter } from '../../styles/theme';
 import { Outlet } from "react-router-dom";
 

@@ -6,7 +6,7 @@ import { theme } from "../../styles/theme";
 
 const OnboardCodeSection = () => {
     const handleEditorChange = (value) => setSource(value);
-    const [value, setValue] = useState("def solution(lottos, win_nums): \nanswer =[]\nreturn answer; ")
+    const [value, setValue] = useState("def find_max(nums) \nmax_num = float(-inf) # smaller than all other numbers\n for num in nums\nif num > max_num: \n # (Fill in the missing line here) \n return max_num")
     const [source, setSource] = useState();
     const [result, setResult] = useState("");
 

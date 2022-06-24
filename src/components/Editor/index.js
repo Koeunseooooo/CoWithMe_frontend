@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 
 import Editor, { useMonaco } from "@monaco-editor/react";
 import axios from "axios";
-import LeftSideSection from "./LeftSideSection";
-import RightSideSection from "./RightSideSection";
 import SelectBox from "./Selectbox";
 
 const CodeEditor = () => {

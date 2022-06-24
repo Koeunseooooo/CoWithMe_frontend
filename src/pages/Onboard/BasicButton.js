@@ -19,9 +19,10 @@ const BasicButton = (props) => {
 export default BasicButton;
 
 const Wrapper = styled.div`
+cursor: pointer;
 font-family: 'AppleSDGothicNeoB00';
 font-weight: 400;
-font-size: 16px;
+font-size: 13px;
 line-height: 22px;
 letter-spacing: 0.25px;
 
@@ -33,7 +34,7 @@ letter-spacing: 0.25px;
     ${flexCenter}
     border: 1px solid #2DDE54;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 13px;
     font-family: 'AppleSDGothicNeoB00';
     line-height: 22px;
     color: black;
@@ -55,7 +56,7 @@ letter-spacing: 0.25px;
     border: 1px solid #2DDE54;
 
     font-weight: 400;
-    font-size: 16px;
+    font-size: 13px;
     font-family: 'AppleSDGothicNeoB00';
     line-height: 22px;
     background-color: black;
