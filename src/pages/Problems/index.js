@@ -322,7 +322,15 @@ input[id="6"]:checked + label::after{
 
 .check-block{
   display:flex;
-  margin-top:25px;
-  margin-bottom:25px;
+  padding-top:10px;
+  padding-left:10px;
+  padding-bottom:10px;
+  margin-top:10px;
+  margin-bottom:10px;
+  &:hover{
+    margin-right:25px;
+    background: #4D4463;
+    border-radius: 8px;
+  }
 }
 `;
