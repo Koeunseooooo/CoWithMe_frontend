@@ -19,6 +19,7 @@ const BasicButton = (props) => {
 export default BasicButton;
 
 const Wrapper = styled.div`
+cursor: pointer;
 font-family: 'AppleSDGothicNeoB00';
 font-weight: 400;
 font-size: 16px;

@@ -3,24 +3,24 @@ import styled from 'styled-components';
 import { theme } from '../../styles/theme';
 import StyledLink from "./StyledLink";
 
-const BreadCrumb = () => {
+const BreadCrumb = ({ category, title }) => {
 
     return (
         <BreadCrumbWrapper>
             <ol className="breadcrumb">
                 <li>
-                    <StyledLink to='/' color="white">
+                    <StyledLink to='/problems' color="white">
                         코딩테스트 연습
                     </StyledLink>
                 </li>
                 <li>
-                    <StyledLink to='/' color="white">
-                        2021 KAKAO BLIND
+                    <StyledLink to='/problems' color="white">
+                        {category}
                     </StyledLink>
                 </li>
                 <li>
-                    <StyledLink to='/' color="green">
-                        신규 아이디 추천
+                    <StyledLink to='/problems' color="green">
+                        {title}
                     </StyledLink>
                 </li>
             </ol>

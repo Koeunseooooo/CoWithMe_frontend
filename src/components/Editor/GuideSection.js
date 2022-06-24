@@ -12,13 +12,50 @@ const GuideSection = ({ problem }) => {
             <Wrapper>
 
                 <div className="problem">
-                    <div className="problem-description">
+                    <ProblemDescription>
                         문제 설명
-                    </div>
+                    </ProblemDescription>
                     {problem &&
                         <Content>
                             {problem.problem}
                         </Content>}
+
+                    <ProblemDescription>
+                        입력
+                    </ProblemDescription>
+                    {problem &&
+                        <Content>
+                            {problem.input}
+                        </Content>}
+
+                    <ProblemDescription>
+                        출력
+                    </ProblemDescription>
+                    {problem &&
+                        <Content>
+                            {problem.output}
+                        </Content>}
+
+                    <SideWrapper>
+                        <div className="example">
+                            <ProblemDescription>
+                                예제 입력
+                            </ProblemDescription>
+                            {problem &&
+                                <Content>
+                                    {problem.inputSample}
+                                </Content>}
+                        </div>
+                        <div className="example">
+                            <ProblemDescription>
+                                예제 출력
+                            </ProblemDescription>
+                            {problem &&
+                                <Content>
+                                    {problem.outputSample}
+                                </Content>}
+                        </div>
+                    </SideWrapper>
                 </div>
             </Wrapper>
         </Section>
@@ -26,9 +63,24 @@ const GuideSection = ({ problem }) => {
 }
 export default GuideSection;
 
+const SideWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    .example{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 50%;
+        .sample{
+            
+        }
+    }
+`
+
 const Section = styled.div`
 display:flex;
 flex-direction: column;
+
 .problem-name{
     font-family: 'AppleSDGothicNeoM00';
     font-weight: 400;
@@ -39,9 +91,20 @@ flex-direction: column;
     margin-bottom: 36px;
   }
 `
+
+const ProblemDescription = styled.div`
+
+    color: ${theme.color.green};
+    font-weight: 400;
+    font-size: 24px;
+    font-family: 'AppleSDGothicNeoM00';
+    line-height: 33px;
+    letter-spacing: 0.25px;
+
+`
 const Wrapper = styled.div`
 width: 75.8rem;
-height: 50vh;
+height: 58vh;
 overflow-y: auto;
 border-radius: 30px;
 font-family: 'neoB';
@@ -53,19 +116,10 @@ background-color: ${theme.color.black2};
     line-height: 28px;
 }
 
-
-.problem-description{
-    color: ${theme.color.green};
-    font-weight: 400;
-    font-size: 24px;
-    font-family: 'AppleSDGothicNeoM00';
-    line-height: 33px;
-    letter-spacing: 0.25px;
-}
 `
 
 const Content = styled.div`
-margin-top: 20px;
+margin: 30px 0;
 font-family: 'AppleSDGothicNeoM00';
 padding: 10px;
 font-style: normal;
