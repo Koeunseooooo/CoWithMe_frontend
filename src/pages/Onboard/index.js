@@ -13,7 +13,7 @@ import { theme, flexCenter } from '../../styles/theme';
 const Onborad = () => {
   const [, setCookie, removeCookie] = useCookies(["Authorization"]);
 
-  const [problemNumber, setProblemNumber] = useState(1);
+  const [problemNumber, setProblemNumber] = useState(5);
   const [problem, setProblem] = useState(null);
   const [answer, setAnswer] = useState(); // 사용자가 선택한 정답
 
@@ -31,13 +31,13 @@ const Onborad = () => {
   }
 
   useEffect(() => {
-    loadProblem(1);
+    loadProblem(5);
   }, []);
 
   const markProblem = async (result) => {
-    const resp = await axios.post(`/tests/mark/${problem.id}`, {
-      answer: result
-    });
+    // const resp = await axios.post(`/tests/mark/${problem.id}`, {
+    //   answer: result
+    // });
 
     // console.log(resp);
     // loadProblem(problemNumber + 1); // 제출하면 다음 문제 가지고 오기
