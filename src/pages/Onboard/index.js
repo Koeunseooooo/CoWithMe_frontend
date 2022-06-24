@@ -18,8 +18,16 @@ const Onborad = () => {
   const [answer, setAnswer] = useState(); // 사용자가 선택한 정답
 
   const loadProblem = async (number) => {
-    const resp = await axios.get(`/tests/${number}`);
-    setProblem(resp.data);
+    // const resp = await axios.get(`/tests/${number}`);
+    setProblem({
+      title: '최대값 찾기',
+      problem: '(Fill in the missing line here에 들어갈 알맞은 코드를 선택해주세요.',
+
+      choice1: 'num = max_num',
+      choice2: 'max_num += 1',
+      choice3: 'max_num = num',
+      choice4: 'max_num += num'
+    });
   }
 
   useEffect(() => {
@@ -31,9 +39,11 @@ const Onborad = () => {
       answer: result
     });
 
-    console.log(resp);
-    loadProblem(problemNumber + 1); // 제출하면 다음 문제 가지고 오기
-    setProblemNumber(problemNumber + 1);
+    // console.log(resp);
+    // loadProblem(problemNumber + 1); // 제출하면 다음 문제 가지고 오기
+    // setProblemNumber(problemNumber + 1);
+
+    window.location.href = '/'; // 홈으로 이동
   }
 
   return (
