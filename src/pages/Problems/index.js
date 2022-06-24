@@ -12,6 +12,7 @@ const Problems = () => {
     axios.get(`/problems`)
       .then(res => {
         setProblems(res.data);
+        console.log(res.data);
       })
 
   }, []);
@@ -82,14 +83,14 @@ function selectCategory(category) {
               </div>
               <div className="each-wrapper">
               <div className="section">
-              {problems&&problems.slice(0,3).map((it) => (
-                  <ProblemBox 
-                    key={it.id}
-                    problem_title={it.title} 
-                    problem_source={it.category} 
-                    id={it.id}
-                    />
-                  ))}
+                {problems&&problems.slice(0,3).map((it) => (
+                    <ProblemBox 
+                      key={it.id}
+                      problem_title={it.title} 
+                      problem_source={it.category} 
+                      id={it.id}
+                      />
+                    ))}
                  </div>
                  </div>
               <div className="each-wrapper">
