@@ -125,7 +125,7 @@ function ProblemBox({problem_title,problem_source,id,...rest}){
           <Wrapper onClick={() => navigate('/solve/'+id)}>
               <div className="problem_title">{problem_title}</div>
               <div className="problem_source">{problem_source}</div>
-              <Illust id={id}/>
+              <Illust id={id%6+1}/>
               <div className="buttonWrapper">
                 <button className="button">테스트하기</button>
               </div>
