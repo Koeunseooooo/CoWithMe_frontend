@@ -44,7 +44,7 @@ AI를 활용한 **코딩 실력 분석 및 맞춤형 학습 제공 서비스**
 1. Clone this repository
 
    ```bash
-   $ git clone
+   $ git clone https://github.com/Koeunseooooo/CoWithMe_frontend.git
    ```
 
 2. Install node packages with yarn
